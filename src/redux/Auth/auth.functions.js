@@ -21,3 +21,20 @@ export const postUser = async (data, navigate, dispatch) => {
       dispatch({ type: "loginError", payload:error.response.data });
     }
   };
+
+  export const logoutUser = (navigate, dispatch) => {
+    try {
+      dispatch({ type: "logoutUser" });
+      localStorage.removeItem("token");
+      navigate("/");
+    } catch (error) {
+      dispatch({ type: "logoutError", payload: error.message });
+    }
+  };
+  
+  export const checkSession = async (token, navigate, dispatch) => {
+    const result = await API.post("users/checksession");
+    dispatch({ type: "userChecksession", payload:{token:token, user:result.data} });
+    localStorage.setItem("token", token);
+    navigate("/");
+  };

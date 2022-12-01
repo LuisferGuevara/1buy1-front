@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.scss";
-import { loginUser } from "../redux/auth/auth.functions"
+import { loginUser } from "../redux/Auth/auth.functions"
 
 const Login = () => {
 
