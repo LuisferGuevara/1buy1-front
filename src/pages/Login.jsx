@@ -23,10 +23,10 @@ const Login = () => {
 
         {error && <h2 className="error">{error}</h2>}
 
-        {isLoading && <h2 className="loading">Logging User</h2>}
+        {isLoading && <h2 className="loading">Iniciando sesión</h2>}
 
         <form onSubmit={handleSubmit(login)}>
-          <h1>Log In</h1>
+          <h1>Iniciar sesión</h1>
           <label>
             Email
             <input
@@ -51,11 +51,17 @@ const Login = () => {
           ) : null}
 
           <label>
-            Password
+            Contraseña
             <input
               type="password"
               name="password"
-              {...register("password", {required: "Introduce a password"})}
+              {...register("password", {required: "Introduce a password",
+                pattern: {
+                  value:
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
+                  message: "The password is incorrect",
+                },
+                })}
             />
           </label>
           {errors.password ? (
@@ -63,12 +69,12 @@ const Login = () => {
               {errors.password.type === "required" && (
                 <p>{errors.password.message}</p>
               )}
-              {/* {errors.password.type === "pattern" && (
+              {errors.password.type === "pattern" && (
                 <p>{errors.password.message}</p>
-              )} */}
+              )}
             </>
           ) : null}
-          <button>Submit</button>
+          <button>Enviar</button>
         </form>
       </div>
     </div>
