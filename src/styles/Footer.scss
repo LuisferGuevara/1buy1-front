@@ -1,0 +1,48 @@
+footer {
+  background-color: red;
+  .footer1 {
+    background-color: green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 0.8em;
+
+    .footer1--social {
+      width: 40%;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      .footer1--social__logo{
+        cursor: pointer;
+        width: 80px;
+      }
+
+      ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+    .meta-info {
+      font-size: 0.9em;
+      cursor: pointer;
+    }
+  }
+  .footer--policies {
+    background-color: teal;
+    width: 100%;
+    padding: 1em;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      width: 90%;
+      margin: 0 auto;
+      p {
+        font-size: 0.8em;
+        cursor: pointer;
+      }
+    }
+  }
+}
