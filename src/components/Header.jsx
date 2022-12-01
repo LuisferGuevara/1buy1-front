@@ -7,7 +7,7 @@ const Header = () => {
     <header className='header'>
       <nav>
           <NavLink to='/'>Home</NavLink>
-          <NavLink to='/comparator'>Comparator</NavLink>       
+          <NavLink to='/comparator'>Comparador</NavLink>       
       </nav>
       <div>
         <img 
