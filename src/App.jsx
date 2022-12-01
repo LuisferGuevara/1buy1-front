@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.scss";
+import "./App.scss;
 import { Comparator, Login, Register } from "./pages/index";
+
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
     <Routes>
       <Route path="/comparator" element={<Comparator/>} />
       <Route path="/register" element={<Register/>} />
+      <Route path="/login" element={<Login/>} />
     </Routes>
     </div>
   );
