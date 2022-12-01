@@ -33,10 +33,10 @@ const Login = () => {
               type="email"
               name="email"
               {...register("email", {
-                required: "Introduce an email",
+                required: "Introduce un email",
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                  message: "The email does not exist",
+                  message: "Introduce un email válido",
                 },
               })}
             />
@@ -55,11 +55,11 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              {...register("password", {required: "Introduce a password",
+              {...register("password", {required: "Introduce una contraseña",
                 pattern: {
                   value:
                     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/,
-                  message: "The password is incorrect",
+                  message: "Mínimo una minúscula, una mayúscula, un número y caracter especial. De 8 a 12 caracteres de largo.",
                 },
                 })}
             />
