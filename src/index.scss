@@ -17,9 +17,9 @@
 
 /* Las adaptamos al modo oscuro */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --negro: #ececec;
-  }
+  // :root {
+  //   --negro: #ececec;
+  // }
 }
 /* Opcional */
 /* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
@@ -191,7 +191,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #62cabc;
+
 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
