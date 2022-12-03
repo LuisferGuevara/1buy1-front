@@ -17,10 +17,7 @@ const Ul = styled.ul`
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    ${
-      "" /* background: linear-gradient(0deg, rgba(246,182,55,0) 0%, rgba(246,182,55,1) 32%, rgba(246,182,55,1) 100%); */
-    }
-    background-color: #fff;
+    background-color: #efefef;
     z-index: -1;
     position: fixed;
     transform: ${({ open }) => (open ? "translateX(0)" : "translateY(-500%)")};
