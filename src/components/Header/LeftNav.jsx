@@ -27,10 +27,10 @@ const Ul = styled.ul`
     top: 51px;
     left: 0;
     min-height: fit-content;
-    height: 70vh;
+    height: 1000vh;
     width: 100vw;
     padding-top: 2.2rem;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.8s ease-in-out;
     &:before {
       content: " ";
       background-color: orange;
@@ -50,7 +50,7 @@ const LeftNav = ({ open }) => {
   return (
     <Ul open={open}>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/home">Home</NavLink>
       </li>
       <li>
       <NavLink to='/comparator'>Comparador</NavLink>   
