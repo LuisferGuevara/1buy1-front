@@ -1,7 +1,7 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import Burger from './Burger';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import Burger from "./Burger";
 
 const Nav = styled.nav`
   width: 100%;
@@ -11,18 +11,27 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  background-color: #f6b637;
   .logo {
-    padding: 15px 0;
-    background-color:red;
+    padding: 5px 0;
+    cursor: pointer;
   }
   @media (max-width: 768px) {
-    position: relative;
+    position: fixed;
     justify-content: flex-end;
     align-items: center;
-    .logo{
+    z-index: 1;
+    .logo {
       position: absolute;
-      left: 45%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 80px;
+    }
+    .user {
+      width: 30px;
     }
   }
 `;
@@ -32,15 +41,24 @@ const Navbar = () => {
     <Nav>
       <Burger />
       <div className="logo">
-        logo
+
+          <img
+            src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670081881/icons/1buy1Logo-01_pnqmca.svg"
+            alt="logo"
+            className="logo"
+          />
       </div>
-      <div className='header--user'>
-        <NavLink>
-        <img src='https://dn-icons-png.flaticon.com/512/1946/1946429.png' alt='userIcon'/>
+      <div className="header--user">
+        <NavLink to="/login">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png"
+            alt="userIcon"
+            className="user"
+          />
         </NavLink>
       </div>
     </Nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

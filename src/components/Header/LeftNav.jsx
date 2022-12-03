@@ -1,5 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 const Ul = styled.ul`
   list-style: none;
@@ -10,21 +11,37 @@ const Ul = styled.ul`
 
   li {
     padding: 18px 10px;
+    a{
+      cursor:pointer;
+    }
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color: #0D2538;
+    ${
+      "" /* background: linear-gradient(0deg, rgba(246,182,55,0) 0%, rgba(246,182,55,1) 32%, rgba(246,182,55,1) 100%); */
+    }
+    background-color: #fff;
+    z-index: -1;
     position: fixed;
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
-    top: 0;
+    transform: ${({ open }) => (open ? "translateX(0)" : "translateY(-115%)")};
+    top: 51px;
     left: 0;
-    z-index:1;
-    height: 100vh;
-    width: 42vw;
-    padding-top: 3.5rem;
-    transition: transform 0.3s ease-in-out;
+    min-height: fit-content;
+    height: 70vh;
+    width: 100vw;
+    padding-top: 2.2rem;
+    transition: transform 0.5s ease-in-out;
+    &:before {
+      content: " ";
+      background-color: orange;
+      width: 100vw;
+    }
+
     li {
-      color: #fff;
+      color: #223137;
+      border-bottom: 3px solid #f6b637;
+      margin: 0 auto;
+      width: 80%;
     }
   }
 `;
@@ -32,13 +49,17 @@ const Ul = styled.ul`
 const LeftNav = ({ open }) => {
   return (
     <Ul open={open}>
-      <li>Home</li>
-      <li>Comporador</li>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+      <NavLink to='/comparator'>Comparador</NavLink>   
+      </li>
       <li>Compra eficiente </li>
       <li>About US ?</li>
       <li>Guía de uso</li>
     </Ul>
-  )
-}
+  );
+};
 
-export default LeftNav
+export default LeftNav;
