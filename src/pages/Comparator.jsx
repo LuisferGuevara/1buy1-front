@@ -15,10 +15,16 @@ const Comparator = () => {
 
   return (
     <div className="comparator--section">
+    <div className="box2">
+
       <Filters />
+      <div className="products--billboard">
+
       {products.map((product) => (
         <Product product={product} key={JSON.stringify(product)} />
       ))}
+      </div>
+    </div>
     </div>
   );
 };

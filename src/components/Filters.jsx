@@ -60,6 +60,7 @@ const Filters = () => {
           <img
             src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670082864/icons/congelados/congelados-26-32_hsw7bs.svg"
             alt="logo congelados"
+            className='congelados'
           />
           <p>Congelados</p>
         </button>
