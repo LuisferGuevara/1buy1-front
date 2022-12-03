@@ -23,7 +23,7 @@ const Ul = styled.ul`
     background-color: #fff;
     z-index: -1;
     position: fixed;
-    transform: ${({ open }) => (open ? "translateX(0)" : "translateY(-115%)")};
+    transform: ${({ open }) => (open ? "translateX(0)" : "translateY(-500%)")};
     top: 51px;
     left: 0;
     min-height: fit-content;

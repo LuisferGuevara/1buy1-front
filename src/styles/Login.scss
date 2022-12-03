@@ -48,7 +48,7 @@
       .button {
         position: absolute;
         left: 50%;
-        bottom: -15%;
+        bottom: -25%;
         transform: translate(-50%, -50%);
         color: black;
         text-decoration: none;
@@ -88,9 +88,8 @@
           transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
         }
         &:hover {
-            transition: all .4s ease-in-out;
-            padding: 0.5em 3.5em 0.5em 0.5em;
-
+          transition: all 0.4s ease-in-out;
+          padding: 0.5em 3.5em 0.5em 0.5em;
         }
         &:hover::before {
           left: calc(100% - 3em);
@@ -101,6 +100,10 @@
           right: 0;
           transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
         }
+      }
+      .form--register {
+        color: blue;
+        text-decoration: underline;
       }
     }
   }

@@ -6,7 +6,6 @@ import Burger from "./Burger";
 const Nav = styled.nav`
   width: 100%;
   height: 55px;
-  border-bottom: 3px solid #f1f1f1;
   padding: 0 20px;
   display: flex;
   align-items: center;
@@ -41,12 +40,13 @@ const Navbar = () => {
     <Nav>
       <Burger />
       <div className="logo">
-
-          <img
-            src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670081881/icons/1buy1Logo-01_pnqmca.svg"
-            alt="logo"
-            className="logo"
-          />
+      <NavLink to="/home">
+        <img
+          src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670081881/icons/1buy1Logo-01_pnqmca.svg"
+          alt="logo"
+          className="logo"
+        />
+      </NavLink>
       </div>
       <div className="header--user">
         <NavLink to="/login">

@@ -1,0 +1,127 @@
+.register--box {
+  width: 100%;
+  height: 80vh;
+  .register--container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 100%;
+    form {
+      margin: 0 auto;
+      z-index: 0;
+      width: 80%;
+      height: 40%;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-evenly;
+      align-items: center;
+      position: relative;
+      h1 {
+        font-weight: bolder;
+        letter-spacing: 0.8px;
+        font-size: 1.5em;
+      }
+      .input {
+        width: 350px;
+        height: 40px;
+        font-size: 16px;
+        padding-left: 1em;
+        background-color: #223137;
+        background: #223137;
+        border-radius: 4px;
+        border-color: hsl(var(--input-focus-h), var(--input-focus-s), var(--input-focus-l));
+        transition: 180ms box-shadow ease-in-out;
+        &:focus {
+          box-shadow: 0 0 0 3px
+            hsla(var(--input-focus-h), var(--input-focus-s), calc(var(--input-focus-l) + 40%), 0.8);
+          outline: 3px solid transparent;
+        }
+      }
+      .button {
+        position: absolute;
+        left: 50%;
+        bottom: -25%;
+        transform: translate(-50%, -50%);
+        color: black;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        font-family: Montserrat;
+        text-transform: uppercase;
+        padding: 0.2em 1em;
+        border: 2px solid black;
+        border-radius: 4px;
+        transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+
+        &::before {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 100%;
+          bottom: 0;
+          background: lightgray;
+          transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+          z-index: -1;
+        }
+        &::after {
+          content: "";
+          display: inline-block;
+          background-image: url("https://cdn-icons-png.flaticon.com/128/109/109617.png");
+          position: absolute;
+          top: 0;
+          left: calc(100% - 3em);
+          right: 3em;
+          bottom: 0;
+          background-size: 1.5em;
+          background-repeat: no-repeat;
+          background-position: center;
+          transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+        }
+        &:hover {
+          transition: all 0.4s ease-in-out;
+          padding: 0.5em 3.5em 0.5em 0.5em;
+        }
+        &:hover::before {
+          left: calc(100% - 3em);
+          right: 0;
+          transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+        }
+        &:hover::after {
+          right: 0;
+          transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+        }
+      }
+    }
+    .login--links {
+        margin: 0 auto;
+        width: 80%;
+        padding: 0 4%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    
+        a {
+          width: 100%;
+          height: 57px;
+          border-radius: 4px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-transform: uppercase;
+          font-weight: 600;
+          background-color: #223137;
+          color: #fff;
+          &:first-child {
+            margin-bottom: 10px;
+          }
+          img {
+            display: flex;
+            transform: translate(-30%);
+            width: 30px;
+          }
+        }
+      }
+  }
+}

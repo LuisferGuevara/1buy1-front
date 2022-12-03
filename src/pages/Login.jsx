@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/Login.scss";
 import { loginUser } from "../redux/Auth/auth.functions"
 
@@ -76,17 +76,18 @@ const Login = () => {
               )}
             </>
           ) : null}
+          <p>¿Eres nuevo? <NavLink to="/register" className="form--register">Crear cuenta</NavLink></p>
           <button className="button">Enviar</button>
         </form>
 
         <div class="login--links">
             <a href="/" target="_blank">
               <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="logo de Google" /> 
-              Registrarse con GOOGLE
+              Accede con GOOGLE
             </a>
             <a href="/" target="_blank">
             <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Facebook_Logo.png" alt="logo de Google" /> 
-            Registrase con FACEBOOK</a>
+            Accede con FACEBOOK</a>
           </div>
       </div>
     </div>
