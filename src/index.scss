@@ -127,7 +127,7 @@ q:after {
 
 /* Nivelamos problemas de tipografías y colocación de formularios */
 form,
-input,
+// input,
 textarea,
 select,
 button,
@@ -184,7 +184,9 @@ body {
   -webkit-font-smoothing: antialiased;
   /* opcional */
   -moz-osx-font-smoothing: grayscale;
+  
 }
+
 
 
 body {

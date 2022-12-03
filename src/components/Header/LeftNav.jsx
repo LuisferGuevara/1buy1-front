@@ -5,6 +5,9 @@ const Ul = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
   li {
     padding: 18px 10px;
   }
@@ -15,8 +18,9 @@ const Ul = styled.ul`
     transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-100%)'};
     top: 0;
     left: 0;
+    z-index:1;
     height: 100vh;
-    width: 300px;
+    width: 42vw;
     padding-top: 3.5rem;
     transition: transform 0.3s ease-in-out;
     li {
@@ -25,7 +29,7 @@ const Ul = styled.ul`
   }
 `;
 
-const RightNav = ({ open }) => {
+const LeftNav = ({ open }) => {
   return (
     <Ul open={open}>
       <li>Home</li>
@@ -37,4 +41,4 @@ const RightNav = ({ open }) => {
   )
 }
 
-export default RightNav
+export default LeftNav

@@ -3,8 +3,10 @@ import "./App.scss";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Comparator, Login, Register } from "./pages/index";
+import Navbar from "./components/Header/Navbar";
 
-import Navbar from "./components/Navbar";
+
+
 
 function App() {
   return (
