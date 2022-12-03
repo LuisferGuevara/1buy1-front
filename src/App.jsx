@@ -3,11 +3,16 @@ import "./App.scss";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Comparator, Login, Register } from "./pages/index";
+import Navbar from "./components/Header/Navbar";
+
+
+
 
 function App() {
   return (
     <div className="app">
-    <Header></Header>
+  <Navbar/>
+    {/* <Header></Header> */}
     <Routes>
       <Route path="/comparator" element={<Comparator/>} />
       <Route path="/register" element={<Register/>} />

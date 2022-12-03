@@ -18,20 +18,21 @@ const Login = () => {
   };
 
   return (
-    <div className="login page">
-      <div className="container">
+    <div className="login">
+      <div className="login--container">
 
         {error && <h2 className="error">{error}</h2>}
 
         {isLoading && <h2 className="loading">Iniciando sesión</h2>}
 
         <form onSubmit={handleSubmit(login)}>
-          <h1>Iniciar sesión</h1>
+          <h1>Acceso a Mi cuenta</h1>
           <label>
-            Email
             <input
               type="email"
               name="email"
+              placeholder="Email"
+              className="input"
               {...register("email", {
                 required: "Introduce un email",
                 pattern: {
@@ -51,10 +52,11 @@ const Login = () => {
           ) : null}
 
           <label>
-            Contraseña
             <input
               type="password"
               name="password"
+            placeholder="Contraseña"
+            className="input"
               {...register("password", {required: "Introduce una contraseña",
                 pattern: {
                   value:
@@ -74,8 +76,18 @@ const Login = () => {
               )}
             </>
           ) : null}
-          <button>Enviar</button>
+          <button className="button">Enviar</button>
         </form>
+
+        <div class="login--links">
+            <a href="/" target="_blank">
+              <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="logo de Google" /> 
+              Registrarse con GOOGLE
+            </a>
+            <a href="/" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Facebook_Logo.png" alt="logo de Google" /> 
+            Registrase con FACEBOOK</a>
+          </div>
       </div>
     </div>
   );
