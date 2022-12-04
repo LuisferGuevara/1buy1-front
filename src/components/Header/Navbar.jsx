@@ -35,21 +35,49 @@ const Nav = styled.nav`
     .user {
       width: 30px;
     }
+    .loggedin {
+      width: 110%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      p {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bolder;
+
+        font-size: 0.8em;
+        width: fit-content;
+        border-bottom: 1px solid #223137;
+      }
+      button {
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .logot--logo {
+          width: 25px;
+          background-color: #f6b637;
+        }
+        span {
+          font-size: 0.5em;
+          font-weight: bolder;
+        }
+      }
+    }
   }
 `;
 
 const Navbar = () => {
+  const { token } = useSelector((state) => state.auth);
 
-  const { token } = useSelector(state => state.auth)
-
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Nav>
-      <Burger isOpen={isOpen} setIsOpen={setIsOpen}/>
+      <Burger isOpen={isOpen} setIsOpen={setIsOpen} />
       <div className="logo">
         <NavLink to="/" onClick={() => setIsOpen(false)}>
           <img
@@ -60,14 +88,20 @@ const Navbar = () => {
         </NavLink>
       </div>
       <div className="header--user">
-        {token && 
-          <>
-            <p>Jose</p>
-            <button onClick={() => logoutUser(navigate, dispatch)}><img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670171708/icons/logoutIcon-01_ywpjwq.svg" alt="Cerrar sesión logo"/></button>
-          </>
-        }
-        {
-          !token &&
+        {token && (
+          <div className="loggedin">
+            <p className="user--name">Jose Luis</p>
+            <button onClick={() => logoutUser(navigate, dispatch)}>
+              <img
+                className="logot--logo"
+                src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670171708/icons/logoutIcon-01_ywpjwq.svg"
+                alt="Cerrar sesión logo"
+              />
+              <span>Cerrar Sesión</span>
+            </button>
+          </div>
+        )}
+        {!token && (
           <>
             <NavLink to="/login" onClick={() => setIsOpen(false)}>
               <img
@@ -77,7 +111,7 @@ const Navbar = () => {
               />
             </NavLink>
           </>
-        }
+        )}
       </div>
     </Nav>
   );

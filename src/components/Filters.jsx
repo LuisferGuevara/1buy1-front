@@ -75,8 +75,8 @@ const Filters = () => {
           />
         <img src="https://cdn-icons-png.flaticon.com/512/64/64673.png" alt="lupa" />
       </div>
-      <div>
-        <button onClick={() => dispatch({type: 'setFilter', payload: products})}>Todos los productos</button>
+      <div className="all--products">
+        <button onClick={() => dispatch({type: 'setFilter', payload: products})}><span>Todos los productos</span></button>
       </div>
       <ul>
         <li>
