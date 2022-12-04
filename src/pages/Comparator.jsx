@@ -15,7 +15,7 @@ const Comparator = () => {
   }, []);
 
   useEffect(() => {
-    dispatch({type: 'setFilter', payload: products});
+    dispatch({type: 'setCategory', payload: products});
   }, [products, dispatch])
 
   return (
