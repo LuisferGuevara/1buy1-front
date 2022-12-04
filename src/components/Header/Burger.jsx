@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import LeftNav from './LeftNav';
-
+import React from "react";
+import styled from "styled-components";
+import LeftNav from "./LeftNav";
 
 const StyledBurger = styled.div`
   width: 2rem;
@@ -16,40 +15,38 @@ const StyledBurger = styled.div`
     justify-content: space-around;
     flex-flow: column nowrap;
   }
-  
+
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ open }) => open ? '#223137' : '#223137'};
+    background-color: ${({ isOpen }) => (isOpen ? "#223137" : "#223137")};
     border-radius: 10px;
     transform-origin: 1px;
-    transition: all 0.3s linear;
+    transition: all 0.25s linear;
     &:nth-child(1) {
-      transform: ${({ open }) => open ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${({ isOpen }) => (isOpen ? "rotate(45deg)" : "rotate(0)")};
     }
     &:nth-child(2) {
-      transform: ${({ open }) => open ? 'translateX(100%)' : 'translateX(0)'};
-      opacity: ${({ open }) => open ? 0 : 1};
+      transform: ${({ isOpen }) => (isOpen ? "translateX(100%)" : "translateX(0)")};
+      opacity: ${({ isOpen }) => (isOpen ? 0 : 1)};
     }
     &:nth-child(3) {
-      transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
+      transform: ${({ isOpen }) => (isOpen ? "rotate(-45deg)" : "rotate(0)")};
     }
   }
 `;
 
-const Burger = () => {
-  const [open, setOpen] = useState(false)
-  
+const Burger = ({isOpen, setIsOpen}) => {
   return (
     <>
-      <StyledBurger open={open} onClick={() => setOpen(!open)}>
+      <StyledBurger isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
         <div />
         <div />
         <div />
       </StyledBurger>
-      <LeftNav open={open}/>
+      <LeftNav isOpen={isOpen} setIsOpen={setIsOpen}/>
     </>
-  )
-}
+  );
+};
 
-export default Burger
+export default Burger;

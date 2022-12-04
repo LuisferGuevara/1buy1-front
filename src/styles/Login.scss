@@ -29,19 +29,19 @@
         font-weight: bolder;
         letter-spacing: 0.8px;
         font-size: 1.5em;
-        animation: fadein .8s;
+        animation: fadein 0.8s;
 
-      @keyframes fadein {
-        0%{
+        @keyframes fadein {
+          0% {
             opacity: 0;
+          }
+          80% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
         }
-        80% {
-          opacity: 0;
-        }
-        100%{
-          opacity: 1;
-        }
-      }
       }
       .input {
         width: 350px;
@@ -55,17 +55,17 @@
         transition: 180ms box-shadow ease-in-out;
         animation: fadein 1.1s;
 
-      @keyframes fadein {
-        0%{
+        @keyframes fadein {
+          0% {
             opacity: 0;
+          }
+          80% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
         }
-        80% {
-          opacity: 0;
-        }
-        100%{
-          opacity: 1;
-        }
-      }
         &:focus {
           box-shadow: 0 0 0 3px
             hsla(var(--input-focus-h), var(--input-focus-s), calc(var(--input-focus-l) + 40%), 0.8);
@@ -88,17 +88,17 @@
         border-radius: 4px;
         animation: fadein 1.1s;
 
-      @keyframes fadein {
-        0%{
+        @keyframes fadein {
+          0% {
             opacity: 0;
+          }
+          80% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
         }
-        80% {
-          opacity: 0;
-        }
-        100%{
-          opacity: 1;
-        }
-      }
         transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
 
         &::before {
@@ -143,23 +143,21 @@
       }
       .form--register {
         animation: fadein 1.8s;
-  
+
         @keyframes fadein {
-          0%{
-              opacity: 0;
+          0% {
+            opacity: 0;
           }
           80% {
             opacity: 0;
           }
-          100%{
+          100% {
             opacity: 1;
           }
         }
-        a{
-
+        a {
           color: blue;
           text-decoration: underline;
-         
         }
       }
     }
@@ -172,18 +170,18 @@
     flex-direction: column;
     justify-content: space-between;
     animation: fadein 1.8s;
-  
-        @keyframes fadein {
-          0%{
-              opacity: 0;
-          }
-          80% {
-            opacity: 0;
-          }
-          100%{
-            opacity: 1;
-          }
-        }
+
+    @keyframes fadein {
+      0% {
+        opacity: 0;
+      }
+      80% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
 
     a {
       width: 100%;
