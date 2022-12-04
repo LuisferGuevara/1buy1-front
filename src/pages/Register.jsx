@@ -75,7 +75,7 @@ const Register = () => {
           ) : null}
           <button className="button">Enviar</button>
         </form>
-        <div class="login--links">
+        <div className="login--links">
             <a href="/" target="_blank">
               <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="logo de Google" /> 
               Registrate con GOOGLE
