@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Burger from "./Burger";
@@ -12,7 +12,6 @@ const Nav = styled.nav`
   justify-content: space-between;
   background-color: #f6b637;
   border-bottom: 2px solid #223137;
-  
   .logo {
     padding: 5px 0;
     cursor: pointer;
@@ -38,20 +37,21 @@ const Nav = styled.nav`
 `;
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <Nav>
-      <Burger />
+      <Burger isOpen={isOpen} setIsOpen={setIsOpen}/>
       <div className="logo">
-      <NavLink to="/home">
-        <img
-          src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670081881/icons/1buy1Logo-01_pnqmca.svg"
-          alt="logo"
-          className="logo"
-        />
-      </NavLink>
+        <NavLink to="/home" onClick={() => setIsOpen(false)}>
+          <img
+            src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670081881/icons/1buy1Logo-01_pnqmca.svg"
+            alt="logo"
+            className="logo"
+          />
+        </NavLink>
       </div>
       <div className="header--user">
-        <NavLink to="/login">
+        <NavLink to="/login" onClick={() => setIsOpen(false)}>
           <img
             src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670090914/icons/userIcon-08_adwm0m.svg"
             alt="userIcon"
