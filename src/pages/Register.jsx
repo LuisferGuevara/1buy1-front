@@ -16,6 +16,8 @@ const Register = () => {
 	const navigate = useNavigate();
 
 	const registerUser = async (data) => {
+    console.log(data);
+    delete data.tou
 		postUser(data, navigate, dispatch);
 	};
 
@@ -106,8 +108,8 @@ const Register = () => {
 						</>
 					) : null}
 					<label>
-						<select {...register("region", { required: "Seleciona una Comunidad Autónoma" })}>
-							<option value>Elige tu Comunidad Autónoma</option>
+						<select {...register("region", { validate: value => value !== "" || "Tienes que elegir una Comunidad Autónoma para continuar" })}>
+							<option value="">Elige tu Comunidad Autónoma</option>
 							<option value="Andalucía">Andalucía</option>
 							<option value="Aragón">Aragón</option>
 							<option value="Principado de Asturias">Principado de Asturias</option>
@@ -130,7 +132,16 @@ const Register = () => {
 						</select>
 					</label>
 					{errors.region ? (
-						<>{errors.region.type === "required" && <p>{errors.region.message}</p>}</>
+						<>{errors.region.type === "validate" && <p>{errors.region.message}</p>}</>
+					) : null}
+          <label>
+            <input type="checkbox" {...register("tou", {required: "Acepta los Terminos y Condiciones de Uso para continuar"})}/>
+            <span>
+              He leído y acepto los <a href="http://www.google.es" target="_blank" rel="noreferrer">Términos y Condiciones de Uso</a>
+            </span>
+          </label>
+          {errors.tou ? (
+						<>{errors.tou.type === "required" && <p>{errors.tou.message}</p>}</>
 					) : null}
 					<button className="button">Enviar</button>
 				</form>
