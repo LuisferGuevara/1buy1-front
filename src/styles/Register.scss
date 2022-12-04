@@ -133,6 +133,10 @@
           transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
         }
       }
+      .error{
+        color: #db1c22;
+        text-align: justify;
+      }
     }
     .login--links {
       margin: 0 auto;

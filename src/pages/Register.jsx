@@ -40,8 +40,8 @@ const Register = () => {
 					</label>
 					{errors.name ? (
 						<>
-							{errors.name.type === "required" && <p>{errors.name.message}</p>}
-							{errors.name.type === "pattern" && <p>{errors.name.message}</p>}
+							{errors.name.type === "required" && <p className="error">{errors.name.message}</p>}
+							{errors.name.type === "pattern" && <p className="error">{errors.name.message}</p>}
 						</>
 					) : null}
 					<label>
@@ -60,8 +60,8 @@ const Register = () => {
 					</label>
 					{errors.lastName ? (
 						<>
-							{errors.lastName.type === "required" && <p>{errors.lastName.message}</p>}
-							{errors.lastName.type === "pattern" && <p>{errors.lastName.message}</p>}
+							{errors.lastName.type === "required" && <p className="error">{errors.lastName.message}</p>}
+							{errors.lastName.type === "pattern" && <p className="error">{errors.lastName.message}</p>}
 						</>
 					) : null}
 					<label>
@@ -80,8 +80,8 @@ const Register = () => {
 					</label>
 					{errors.email ? (
 						<>
-							{errors.email.type === "required" && <p>{errors.email.message}</p>}
-							{errors.email.type === "pattern" && <p>{errors.email.message}</p>}
+							{errors.email.type === "required" && <p className="error">{errors.email.message}</p>}
+							{errors.email.type === "pattern" && <p className="error">{errors.email.message}</p>}
 						</>
 					) : null}
 					<label>
@@ -101,8 +101,8 @@ const Register = () => {
 					</label>
 					{errors.password ? (
 						<>
-							{errors.password.type === "required" && <p>{errors.password.message}</p>}
-							{errors.password.type === "pattern" && <p>{errors.password.message}</p>}
+							{errors.password.type === "required" && <p className="error">{errors.password.message}</p>}
+							{errors.password.type === "pattern" && <p className="error">{errors.password.message}</p>}
 						</>
 					) : null}
 					<label>
@@ -130,7 +130,7 @@ const Register = () => {
 						</select>
 					</label>
 					{errors.region ? (
-						<>{errors.region.type === "required" && <p>{errors.region.message}</p>}</>
+						<>{errors.region.type === "required" && <p className="error">{errors.region.message}</p>}</>
 					) : null}
 					<button className="button">Enviar</button>
 				</form>

@@ -50,6 +50,7 @@
         padding-left: 1em;
         background-color: #223137;
         background: #223137;
+        color: whitesmoke;
         border-radius: 4px;
         border-color: hsl(var(--input-focus-h), var(--input-focus-s), var(--input-focus-l));
         transition: 180ms box-shadow ease-in-out;
@@ -71,6 +72,8 @@
             hsla(var(--input-focus-h), var(--input-focus-s), calc(var(--input-focus-l) + 40%), 0.8);
           outline: 3px solid transparent;
         }
+        &::placeholder { 
+          color: whitesmoke;}
       }
       .button {
         position: absolute;
@@ -159,6 +162,10 @@
           color: blue;
           text-decoration: underline;
         }
+      }
+      .error{
+        color: #db1c22;
+        text-align: justify;
       }
     }
   }

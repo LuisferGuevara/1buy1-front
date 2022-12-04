@@ -46,8 +46,8 @@ const Login = () => {
           </label>
           {errors.email ? (
             <>
-              {errors.email.type === "required" && <p>{errors.email.message}</p>}
-              {errors.email.type === "pattern" && <p>{errors.email.message}</p>}
+              {errors.email.type === "required" && <p className="error">{errors.email.message}</p>}
+              {errors.email.type === "pattern" && <p className="error">{errors.email.message}</p>}
             </>
           ) : null}
 
@@ -69,8 +69,8 @@ const Login = () => {
           </label>
           {errors.password ? (
             <>
-              {errors.password.type === "required" && <p>{errors.password.message}</p>}
-              {errors.password.type === "pattern" && <p>{errors.password.message}</p>}
+              {errors.password.type === "required" && <p className="error">{errors.password.message}</p>}
+              {errors.password.type === "pattern" && <p className="error">{errors.password.message}</p>}
             </>
           ) : null}
           <p className="form--register">
