@@ -1,11 +1,14 @@
 footer {
-  border-top: 3px solid #f1f1f1;
+  border-top: 1.2px solid #223137;
+  position: relative;
+    z-index: 1;
   .footer1 {
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1em 0.8em;
-    border-bottom: 3px solid #f1f1f1;
+    border-bottom: 1px solid #223137;
     .footer1--social {
       width: 40%;
       height: 100px;

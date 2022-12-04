@@ -1,0 +1,98 @@
+.home--section {
+  padding-top: 76px;
+  height: 100%;
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    width: 90%;
+    height: fit-content;
+    padding: 0.5em 0;
+
+    h1 {
+      font-size: 1.5em;
+      line-height: 1.4em;
+      font-weight: bold;
+      animation: fadein 0.5s;
+
+      @keyframes fadein {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .buy {
+        font-size: 0.8em;
+      }
+    }
+    p {
+      width: 80%;
+      margin: 2% auto;
+      text-align: justify;
+      margin-bottom: 0;
+      animation: fadein 1.4s;
+
+      @keyframes fadein {
+        0% {
+          opacity: 0;
+        }
+        80% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .links--container {
+    padding-top: 10%;
+    width: 90%;
+    animation: fadein 2s;
+
+    @keyframes fadein {
+      0% {
+        opacity: 0;
+      }
+      80% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .links--comparator {
+      background-color: #f6b637;
+      margin: 0 auto;
+      padding: 1.2em;
+      width: 70%;
+      border: 2px solid #223137;
+      border-radius: 4px;
+      color: #223137;
+      font-weight: 600;
+      @media (min-width: 769px) {
+      }
+    }
+    .links--tutorial {
+      background-color: #f6b637;
+      margin: 6% auto;
+      padding: 1.2em;
+      width: 40%;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #223137;
+      border-radius: 4px;
+      color: #223137;
+      font-weight: 600;
+    }
+  }
+}

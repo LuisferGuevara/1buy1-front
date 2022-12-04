@@ -16,10 +16,11 @@ const StyledBurger = styled.div`
     justify-content: space-around;
     flex-flow: column nowrap;
   }
+  
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ open }) => open ? '#333' : '#333'};
+    background-color: ${({ open }) => open ? '#223137' : '#223137'};
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;

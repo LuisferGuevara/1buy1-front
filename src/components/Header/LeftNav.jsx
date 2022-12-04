@@ -17,20 +17,17 @@ const Ul = styled.ul`
   }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    ${
-      "" /* background: linear-gradient(0deg, rgba(246,182,55,0) 0%, rgba(246,182,55,1) 32%, rgba(246,182,55,1) 100%); */
-    }
-    background-color: #fff;
+    background-color: #efefef;
     z-index: -1;
     position: fixed;
     transform: ${({ open }) => (open ? "translateX(0)" : "translateY(-500%)")};
     top: 51px;
     left: 0;
     min-height: fit-content;
-    height: 70vh;
+    height: 1000vh;
     width: 100vw;
     padding-top: 2.2rem;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.8s ease-in-out;
     &:before {
       content: " ";
       background-color: orange;
@@ -50,7 +47,7 @@ const LeftNav = ({ open }) => {
   return (
     <Ul open={open}>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/home">Home</NavLink>
       </li>
       <li>
       <NavLink to='/comparator'>Comparador</NavLink>   

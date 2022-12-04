@@ -66,11 +66,13 @@ a {
   text-decoration: none;
   color: inherit;
   font-size: inherit;
+  color: #223137;
 }
 
 /* ... excepto los que se encuentran en párrafos */
 p a {
   display: inline;
+  color: #223137;
 }
 
 /* Quitamos los puntos de los <li> */
@@ -104,6 +106,7 @@ em {
   font-style: inherit;
   text-decoration: none;
   color: inherit;
+  color: #223137;
 }
 
 /* Evitamos problemas con los pseudoelementos de quotes */
@@ -193,8 +196,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-
+  background-color: #efefef;
+  color: #223137;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

@@ -11,6 +11,8 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   background-color: #f6b637;
+  border-bottom: 2px solid #223137;
+  
   .logo {
     padding: 5px 0;
     cursor: pointer;
@@ -51,7 +53,7 @@ const Navbar = () => {
       <div className="header--user">
         <NavLink to="/login">
           <img
-            src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png"
+            src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670090914/icons/userIcon-08_adwm0m.svg"
             alt="userIcon"
             className="user"
           />
