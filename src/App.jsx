@@ -1,13 +1,24 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.scss";
 import Footer from "./components/Footer";
 import { Comparator, Home, Login, Register } from "./pages/index";
 import Navbar from "./components/Header/Navbar";
+import { checkSession } from "./redux/Auth/auth.functions";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 
 
 
 function App() {
+  const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+  useEffect(() => {
+    token && checkSession(token, navigate, dispatch);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="app">
   <Navbar/>

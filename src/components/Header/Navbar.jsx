@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { logoutUser } from "../../redux/Auth/auth.functions";
 import Burger from "./Burger";
 
 const Nav = styled.nav`
@@ -37,7 +39,14 @@ const Nav = styled.nav`
 `;
 
 const Navbar = () => {
+
+  const { token } = useSelector(state => state.auth)
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <Nav>
       <Burger isOpen={isOpen} setIsOpen={setIsOpen}/>
@@ -51,15 +60,24 @@ const Navbar = () => {
         </NavLink>
       </div>
       <div className="header--user">
-        {/* <p>Jose</p>
-        <button>Cerrar sesión</button> */}
-        <NavLink to="/login" onClick={() => setIsOpen(false)}>
-          <img
-            src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670090914/icons/userIcon-08_adwm0m.svg"
-            alt="userIcon"
-            className="user"
-          />
-        </NavLink>
+        {token && 
+          <>
+            <p>Jose</p>
+            <button onClick={() => logoutUser(navigate, dispatch)}><img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670171708/icons/logoutIcon-01_ywpjwq.svg" alt="Cerrar sesión logo"/></button>
+          </>
+        }
+        {
+          !token &&
+          <>
+            <NavLink to="/login" onClick={() => setIsOpen(false)}>
+              <img
+                src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670171968/icons/user-02_wuc8uu.svg"
+                alt="userIcon"
+                className="user"
+              />
+            </NavLink>
+          </>
+        }
       </div>
     </Nav>
   );

@@ -82,14 +82,14 @@ const Login = () => {
         <div className="login--links">
           <a href="/" target="_blank">
             <img
-              src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
+              src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670173557/icons/socialMedia-03_ohyzkf.svg"
               alt="logo de Google"
             />
             Accede con GOOGLE
           </a>
           <a href="/" target="_blank">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/4/44/Facebook_Logo.png"
+              src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670173557/icons/socialMedia-04_jekc42.svg"
               alt="logo de Google"
             />
             Accede con FACEBOOK

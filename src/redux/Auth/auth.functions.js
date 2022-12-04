@@ -36,5 +36,5 @@ export const postUser = async (data, navigate, dispatch) => {
     const result = await API.post("users/checksession");
     dispatch({ type: "userChecksession", payload:{token:token, user:result.data} });
     localStorage.setItem("token", token);
-    navigate("/");
+    navigate("/comparator");
   };
