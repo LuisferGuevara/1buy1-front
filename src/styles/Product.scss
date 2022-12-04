@@ -5,22 +5,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: .5em;
+  padding-top: 1em;
     margin: 1em;
     border-radius: 50%;
-    animation: fadein 1.4s;
+    // animation: fadein 1.4s;
 
-      @keyframes fadein {
-        0%{
-            opacity: 0;
-        }
-        80% {
-          opacity: 0;
-        }
-        100%{
-          opacity: 1;
-        }
-      }
+    //   @keyframes fadein {
+    //     0%{
+    //         opacity: 0;
+    //     }
+    //     80% {
+    //       opacity: 0;
+    //     }
+    //     100%{
+    //       opacity: 1;
+    //     }
+    //   }
     h2{
         text-transform: uppercase;
         font-size: .8em; 
@@ -31,9 +31,12 @@
 
     }
     .food-item__image{
+      display: flex;
+      align-items: center;
+      justify-content: center;
         width: 80px;
         img{
-        width: 80px;
+        width: 60px;
         object-fit: contain;
 
     }       
