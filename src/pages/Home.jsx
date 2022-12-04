@@ -7,7 +7,7 @@ const Home = () => {
     <div className="home--section">
       <div className="title">
         <h1>1<span className="buy">BUY</span>1 - Tu comparador de confianza</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente ab, nulla eveniet veritatis soluta sunt qui quibusdam dolorem nobis quod porro laborum consectetur ipsa? Sit odio provident eaque illo illum?</p>
+        <p>Sit, amet consectetur adipisicing elit. Sapiente ab, nulla eveniet veritatis soluta sunt qui quibusdam dolorem nobis quod porro laborum consectetur ipsa? Sit odio provident eaque illo illum?</p>
       </div>
       <div className="links--container">
    
