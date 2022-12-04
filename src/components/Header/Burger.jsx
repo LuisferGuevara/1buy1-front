@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import LeftNav from "./LeftNav";
 
@@ -37,8 +37,6 @@ const StyledBurger = styled.div`
 `;
 
 const Burger = ({isOpen, setIsOpen}) => {
-
-
   return (
     <>
       <StyledBurger isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
