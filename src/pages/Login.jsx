@@ -76,7 +76,7 @@ const Login = () => {
               )}
             </>
           ) : null}
-          <p>¿Eres nuevo? <NavLink to="/register" className="form--register">Crear cuenta</NavLink></p>
+          <p className="form--register">¿Eres nuevo? <NavLink to="/register">Crear cuenta</NavLink></p>
           <button className="button">Enviar</button>
         </form>
 

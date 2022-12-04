@@ -12,6 +12,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   background-color: #f6b637;
   border-bottom: 2px solid #223137;
+  
   .logo {
     padding: 5px 0;
     cursor: pointer;

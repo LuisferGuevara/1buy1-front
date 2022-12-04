@@ -8,6 +8,19 @@
     padding: .5em;
     margin: 1em;
     border-radius: 50%;
+    animation: fadein 1.4s;
+
+      @keyframes fadein {
+        0%{
+            opacity: 0;
+        }
+        80% {
+          opacity: 0;
+        }
+        100%{
+          opacity: 1;
+        }
+      }
     h2{
         text-transform: uppercase;
         font-size: .8em; 
@@ -22,9 +35,7 @@
         img{
         width: 80px;
         object-fit: contain;
-        &:nth-of-type(6){
-            background-color: red;
-        }
+
     }       
     }
 }
