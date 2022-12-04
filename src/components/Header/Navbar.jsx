@@ -42,7 +42,7 @@ const Navbar = () => {
     <Nav>
       <Burger isOpen={isOpen} setIsOpen={setIsOpen}/>
       <div className="logo">
-        <NavLink to="/home" onClick={() => setIsOpen(false)}>
+        <NavLink to="/" onClick={() => setIsOpen(false)}>
           <img
             src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670081881/icons/1buy1Logo-01_pnqmca.svg"
             alt="logo"

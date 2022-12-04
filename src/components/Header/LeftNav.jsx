@@ -51,7 +51,7 @@ const LeftNav = ({ isOpen, setIsOpen }) => {
   return (
     <Ul isOpen={isOpen}>
       <li onClick={() => setIsOpen(false)}>
-        <NavLink to="/home">Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li onClick={() => setIsOpen(false)}>
         <NavLink to="/comparator">Comparador</NavLink>

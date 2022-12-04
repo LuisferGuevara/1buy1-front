@@ -1,12 +1,12 @@
 import { API } from "../../utils/services/api"; 
 
-export const getProducts = async ( dispacth ) => {
+export const getProducts = async ( dispatch ) => {
  try {
     const result = await API.get("/products");
-    dispacth({type: "getProducts", payload: result.data});
+    dispatch({type: "getProducts", payload: result.data});
     
  } catch (error) {
-    dispacth({type: "errorProducts", payload: error.response?.data})
+    dispatch({type: "errorProducts", payload: error.response?.data})
     
  }
     

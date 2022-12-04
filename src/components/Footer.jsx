@@ -7,7 +7,7 @@ const Footer = () => {
     <footer>
       <div className="footer1">
         <div className="footer1--social">
-          <NavLink to="/home" rel="noreferrer" className="footer1--social__logo">
+          <NavLink to="/" rel="noreferrer" className="footer1--social__logo">
             <img
               src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670081881/icons/1buy1Logo-01_pnqmca.svg"
               alt="logo"

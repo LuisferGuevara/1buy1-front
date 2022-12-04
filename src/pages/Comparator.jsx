@@ -6,18 +6,23 @@ import { getProducts } from "../redux/Products/products.functions";
 import "../styles/Comparator.scss";
 
 const Comparator = () => {
-  const dispacth = useDispatch();
-  const { products } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  const { filter, products } = useSelector((state) => state.products);
+
   useEffect(() => {
-    getProducts(dispacth);
+    getProducts(dispatch);
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    dispatch({type: 'setFilter', payload: products});
+  }, [products, dispatch])
 
   return (
     <div className="comparator--section">
       <Filters />
       <div className="products--billboard">
-        {products.map((product) => (
+        {filter.map((product) => (
           <Product product={product} key={JSON.stringify(product)} />
         ))}
       </div>
