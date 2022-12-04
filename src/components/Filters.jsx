@@ -1,46 +1,78 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/Comparator.scss";
-
 
 
 const Filters = () => {
   const dispatch = useDispatch();
 
-  const { products } = useSelector(state => state.products);
+  let { products, category } = useSelector(state => state.products);
   
+  useEffect(() => {
 
+    document.querySelector('#productSearchBar').value = '';
 
+  }, [category])
+  
   const showMilky = () => {
+
     const milkyFilter = products.filter(product => product.category === 'lácteos');
-    dispatch({type: 'setFilter', payload: milkyFilter});
-  };
-  const showMeatShop = () => {
-    const meatShopFilter = products.filter(product => product.category === 'carnicería');
-    dispatch({type: 'setFilter', payload: meatShopFilter});
-  };
-  const showFishShop = () => {
-    const showFishFilter = products.filter(product => product.category === 'pescadería');
-    dispatch({type: 'setFilter', payload: showFishFilter});
-  };
-  const showDrinks = () => {
-    const drinksFilter = products.filter(product => product.category === 'bebidas');
-    dispatch({type: 'setFilter', payload: drinksFilter});
-  };
-  const showPantry = () => {
-    const pantryFilter = products.filter(product => product.category === 'despensa');
-    dispatch({type: 'setFilter', payload: pantryFilter});
-  };
-  const showFrozen = () => {
-    const frozenFilter = products.filter(product => product.category === 'congelados');
-    dispatch({type: 'setFilter', payload: frozenFilter});
+    dispatch({type: 'setCategory', payload: milkyFilter});
+
   };
 
+  const showMeatShop = () => {
+
+    const meatShopFilter = products.filter(product => product.category === 'carnicería');
+    dispatch({type: 'setCategory', payload: meatShopFilter});
+
+  };
+
+  const showFishShop = () => {
+
+    const showFishFilter = products.filter(product => product.category === 'pescadería');
+    dispatch({type: 'setCategory', payload: showFishFilter});
+
+  };
+
+  const showDrinks = () => {
+
+    const drinksFilter = products.filter(product => product.category === 'bebidas');
+    dispatch({type: 'setCategory', payload: drinksFilter});
+
+  };
+
+  const showPantry = () => {
+
+    const pantryFilter = products.filter(product => product.category === 'despensa');
+    dispatch({type: 'setCategory', payload: pantryFilter});
+
+  };
+  
+  const showFrozen = () => {
+    
+    const frozenFilter = products.filter(product => product.category === 'congelados');
+    dispatch({type: 'setCategory', payload: frozenFilter});
+
+  };
+
+  const searcher = (event) => {
+
+    const searchFilter = category.filter(product => product.name.toLowerCase().includes(event.target.value.toLowerCase()));
+    dispatch({type: 'setFilter', payload: searchFilter});  
+
+  };
+  
   return (
     <div className="filters--container">
       <h1>Categorías</h1>
       <div className="input--box">
-        <input type="text" className="input" />
+        <input 
+          type="text" 
+          className="input"
+          onKeyUp={searcher}
+          id="productSearchBar"
+          />
         <img src="https://cdn-icons-png.flaticon.com/512/64/64673.png" alt="lupa" />
       </div>
       <ul>
