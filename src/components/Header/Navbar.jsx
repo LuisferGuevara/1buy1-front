@@ -51,6 +51,8 @@ const Navbar = () => {
         </NavLink>
       </div>
       <div className="header--user">
+        {/* <p>Jose</p>
+        <button>Cerrar sesión</button> */}
         <NavLink to="/login" onClick={() => setIsOpen(false)}>
           <img
             src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670090914/icons/userIcon-08_adwm0m.svg"
