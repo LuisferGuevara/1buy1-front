@@ -18,11 +18,10 @@ const Ul = styled.ul`
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     background-color: #efefef;
-
     z-index: -1;
     position: fixed;
     transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(-500%)")};
-    top: 58px;
+    top: 56px;
     left: 0;
     min-height: fit-content;
     height: 1000vh;
