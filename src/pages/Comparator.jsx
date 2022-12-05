@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Filters from "../components/Filters";
-import Product from "../components/Product";
+import ExpandibleProduct from "../components/ExtensibleProduct";
 import { getProducts } from "../redux/Products/products.functions";
 import "../styles/Comparator.scss";
 
@@ -23,7 +23,7 @@ const Comparator = () => {
       <Filters />
       <div className="products--billboard">
         {filter.map((product) => (
-          <Product product={product} key={JSON.stringify(product)} />
+          <ExpandibleProduct product={product} key={JSON.stringify(product)} />
         ))}
       </div>
     </div>

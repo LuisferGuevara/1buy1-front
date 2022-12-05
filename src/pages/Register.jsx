@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { postUser } from "../redux/Auth/auth.functions";
 import "../styles/Register.scss";
@@ -15,8 +15,9 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { error, isLoading } = useSelector((state) => state.auth);
+
   const registerUser = async (data) => {
-    console.log(data);
     delete data.tou;
     postUser(data, navigate, dispatch);
   };
@@ -24,6 +25,10 @@ const Register = () => {
   return (
     <div className="register--box">
       <div className="register--container">
+      {error && <h2 className="error">{error}</h2>}
+
+      {isLoading && <h2 className="loading">Iniciando sesión</h2>}
+
         <form onSubmit={handleSubmit(registerUser)}>
           <h1>Regístrate</h1>
           <label>
