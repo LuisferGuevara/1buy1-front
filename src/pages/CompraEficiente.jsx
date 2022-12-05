@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const CompraEficiente = () => {
-  return (
-    <div>CompraEficiente</div>
-  )
-}
+  return <div>CompraEficiente</div>;
+};
 
-export default CompraEficiente
+export default CompraEficiente;

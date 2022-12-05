@@ -15,8 +15,8 @@ const Comparator = () => {
   }, []);
 
   useEffect(() => {
-    dispatch({type: 'setCategory', payload: products});
-  }, [products, dispatch])
+    dispatch({ type: "setCategory", payload: products });
+  }, [products, dispatch]);
 
   return (
     <div className="comparator--section">

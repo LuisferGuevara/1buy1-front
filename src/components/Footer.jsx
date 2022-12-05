@@ -15,7 +15,7 @@ const Footer = () => {
           </NavLink>
           <ul className="footer1--social__list">
             <li>
-              <a href="facebok">
+              <a href="/facebok" target="_blank" rel="noreferrer" >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -29,7 +29,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="twitter">
+              <a href="twitter" target="_blank" rel="noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -43,7 +43,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="youtube">
+              <a href="youtube" target="_blank" rel="noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -57,7 +57,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="linkedin">
+              <a href="linkedin" target="_blank" rel="noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -71,7 +71,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="linkedin">
+              <a href="instagram" target="_blank" rel="noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -87,7 +87,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <ul className="meta-info">
+        <ul className="meta-info" >
           <li>
             <p>Conócenos</p>
           </li>
