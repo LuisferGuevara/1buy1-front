@@ -27,14 +27,14 @@ const EditProfileForm = ({setEdit}) => {
   };
 
   return (
-    <div className="register--box">
+    <div className="register--box update--profile">
       <div className="register--container">
       {error && <h2 className="error">{error}</h2>}
 
       {isLoading && <h2 className="loading">Iniciando sesión</h2>}
 
         <form onSubmit={handleSubmit(editUser)}>
-          <h1>Regístrate</h1>
+          <h1>Actualiza Tus Datos Personales</h1>
           <label>
             <input
               type="text"
@@ -115,8 +115,10 @@ const EditProfileForm = ({setEdit}) => {
                 <p className="error">{errors.region.message}</p>
               )}
             </>
-          ) : null}         
-          <button className="button">Actualizar</button>
+          ) : null}        
+          <div className="submit--box">
+            <button className="button">Actualizar</button>
+          </div>
         </form>       
       </div>
     </div>
