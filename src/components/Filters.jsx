@@ -56,6 +56,12 @@ const Filters = () => {
 
   };
 
+  const showAll = () => {
+    
+    dispatch({type: 'setCategory', payload: products});
+
+  };
+
   const searcher = (event) => {
 
     const searchFilter = category.filter(product => product.name.toLowerCase().includes(event.target.value.toLowerCase()));
@@ -76,7 +82,7 @@ const Filters = () => {
         <img src="https://cdn-icons-png.flaticon.com/512/64/64673.png" alt="lupa" />
       </div>
       <div className="all--products">
-        <button onClick={() => dispatch({type: 'setFilter', payload: products})}><span>Todos los productos</span></button>
+        <button onClick={() => showAll()}><span>Todos los productos</span></button>
       </div>
       <ul>
         <li>
