@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import "../styles/Product.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { pushToCart, removeFromCart } from "../redux/Auth/auth.functions";
 
 function ExpandedCard({ product, onCollapse }) {
 
-	const { token } = useSelector(state => state.auth)
-
+	const { token, cart } = useSelector(state => state.auth)
+	const dispatch = useDispatch()
+	
 	const { supermarkets } = product;
-
+	
 	let minUd = supermarkets.reduce((prev, curr) => (prev.priceUd < curr.priceUd ? prev : curr)).priceUd;
 	let minKg = supermarkets.reduce((prev, curr) => (prev.priceKg < curr.priceKg ? prev : curr)).priceKg;
 	let minL = supermarkets.reduce((prev, curr) => (prev.priceL < curr.priceL ? prev : curr)).priceL;
-
+	
 	const [priceToggle, setPriceToggle] = useState(false);
+	const [onCart, setOnCart] = useState(false);
+	
+	useEffect(() => {
+		cart.find(cartProduct => cartProduct.name === product.name) ? setOnCart(true) : setOnCart(false);
+    	//eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
+	
 
 	return (
 		<>
@@ -60,8 +69,11 @@ function ExpandedCard({ product, onCollapse }) {
 					<button onClick={() => setPriceToggle(!priceToggle)}>
 						{priceToggle ? "Mostrar precio Kg/L" : "Mostrar precio unidad"}
 					</button>
-					{token && <div className="cart-logo">
+					{(token && !onCart) && <div className="cart-logo" onClick={() => pushToCart(cart, product, setOnCart, dispatch)}>
 						<img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670265008/icons/addToCart-yellow-10_qyg1bb.svg" alt="Añadir al carrito"/>
+					</div>}
+					{(token && onCart) && <div className="cart-logo" onClick={() => removeFromCart(cart, product, setOnCart, dispatch)}>
+						<img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670269180/icons/carritoLogo/removeFromCart-yellow-13_f80lxj.svg" alt="Añadir al carrito"/>
 					</div>}
 				</div>
 			</motion.div>

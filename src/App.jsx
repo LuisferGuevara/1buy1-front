@@ -13,11 +13,16 @@ import CompraEficiente from "./pages/CompraEficiente";
 
 
 function App() {
-  const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const token = localStorage.getItem("token");
+  const cart = localStorage.getItem("cart");
+  
   useEffect(() => {
     token && checkSession(token, navigate, dispatch);
+    cart && dispatch({type: "setCart", payload: JSON.parse(cart)});
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

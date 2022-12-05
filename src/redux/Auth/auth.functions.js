@@ -26,6 +26,7 @@ export const postUser = async (data, navigate, dispatch) => {
     try {
       dispatch({ type: "logoutUser" });
       localStorage.removeItem("token");
+      localStorage.removeItem("cart");
       navigate("/");
     } catch (error) {
       dispatch({ type: "logoutError", payload: error.message });
@@ -48,3 +49,17 @@ export const postUser = async (data, navigate, dispatch) => {
     localStorage.setItem("token", token);
     navigate("/comparator");
   };
+
+  export const pushToCart = (cart, product, setOnCart, dispatch) => {
+    cart.push(product);
+    dispatch({type: "setCart", payload: cart})
+    localStorage.setItem("cart", JSON.stringify(cart))
+    setOnCart(true)
+  }
+
+  export const removeFromCart = (cart, product, setOnCart, dispatch) => {
+    cart = cart.filter(cartProduct => cartProduct.name !== product.name)
+    dispatch({type: "setCart", payload: cart})
+    localStorage.setItem("cart", JSON.stringify(cart))
+    setOnCart(false)
+  }
