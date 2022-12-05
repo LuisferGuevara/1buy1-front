@@ -1,52 +1,76 @@
 import React, { useState } from "react";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import "../styles/Product.scss";
+import { useSelector } from "react-redux";
 
 function ExpandedCard({ product, onCollapse }) {
-  const { supermarkets } = product;
 
-  return (
-    <>
-      <motion.p
-        className="expanded secondary"
-        onClick={onCollapse}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      />
-      <motion.div className="card--expanded" layoutId="expandable-card">
-        <div className="card--expanded__top-section">
-		<div className="card--expanded__d">
-          <div className="card--expanded__top-section--img">
-            <img src={product.img} alt={product.name} />
-          </div>
-          <h4>{product.name}</h4>
-		</div>
-          <button onClick={onCollapse}>X</button>
-        </div>
-        <div className="comparator--info__box">
-          {supermarkets.map((supermarket) => (
-            <div key={supermarket._id} className="comparator--info">
-              <div className="comparator--info__img">
-                <img src={supermarket.logo} alt={supermarket.supermarketName} />
-              </div>
-              <div className="comparator--info__metatext">
-                <p>{supermarket.productName}</p>
-				<div className="comparator--prices">
+	const { token } = useSelector(state => state.auth)
 
-                <p id="price--unit">{supermarket.priceUd}€</p>
-                {supermarket.priceKg && <p>{supermarket.priceKg} €/Kg</p>}
-                {supermarket.priceL && <p>{supermarket.priceL} €/L</p>}
+	const { supermarkets } = product;
+
+	let minUd = supermarkets.reduce((prev, curr) => (prev.priceUd < curr.priceUd ? prev : curr)).priceUd;
+	let minKg = supermarkets.reduce((prev, curr) => (prev.priceKg < curr.priceKg ? prev : curr)).priceKg;
+	let minL = supermarkets.reduce((prev, curr) => (prev.priceL < curr.priceL ? prev : curr)).priceL;
+
+	console.log(minUd, minKg, minL);
+
+	/* supermarkets.map((supermarket) => {
+		if (supermarket === min) console.log(supermarket);
+	}); */
+
+	const [priceToggle, setPriceToggle] = useState(false);
+
+	return (
+		<>
+			<motion.p
+				className="expanded secondary"
+				onClick={onCollapse}
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+			/>
+			<motion.div className="card--expanded" layoutId="expandable-card">
+				<div className="card--expanded__top-section">
+					<div className="card--expanded__d">
+						<div className="card--expanded__top-section--img">
+							<img src={product.img} alt={product.name} />
+						</div>
+						<h4>{product.name}</h4>
+					</div>
+					<button onClick={onCollapse}>X</button>
 				</div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="card--button">
-          <button>Precio Unidad</button>
-        </div>
-      </motion.div>
-    </>
-  );
+				<div className="comparator--info__box">
+					{supermarkets.map((supermarket) => (
+						<div key={supermarket._id} className="comparator--info">
+							<div className="comparator--info__img">
+								<img src={supermarket.logo} alt={supermarket.supermarketName} />
+							</div>
+							<div className="comparator--info__metatext">
+								<p>{supermarket.productName}</p>
+								<div className="comparator--prices">
+									{priceToggle ? (
+										<p id="price--unit" className={supermarket.priceUd === minUd ? "cheapest" : ""}>{supermarket.priceUd}€</p>
+									) : (
+										<>
+											{supermarket.priceKg && <p className={supermarket.priceKg === minKg ? "cheapest" : ""}>{supermarket.priceKg} €/Kg</p>}
+											{supermarket.priceL && <p className={supermarket.priceL === minL ? "cheapest" : ""}>{supermarket.priceL} €/L</p>}
+											{(!supermarket.priceL && !supermarket.priceKg) && <p>Precio no disponible</p>}
+										</>
+									)}
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+				<div className="card--button">
+					<button onClick={() => setPriceToggle(!priceToggle)}>
+						{priceToggle ? "Mostrar precio Kg/L" : "Mostrar precio unidad"}
+					</button>
+					{token && <img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670257472/icons/addToCart-09_ikgf0i.svg" alt="Añadir al carrito"/>}
+				</div>
+			</motion.div>
+		</>
+	);
 }
 
 function CompactCard({ product, onExpand }) {
@@ -61,27 +85,27 @@ function CompactCard({ product, onExpand }) {
 }
 
 const ExpandibleProduct = ({ product }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+	const [isExpanded, setIsExpanded] = useState(false);
 
-  const collapseDate = () => {
-    setIsExpanded(false);
-  };
+	const collapseDate = () => {
+		setIsExpanded(false);
+	};
 
-  const expandDate = () => {
-    setIsExpanded(true);
-  };
+	const expandDate = () => {
+		setIsExpanded(true);
+	};
 
-  return (
-    <div className="card-container">
-      <AnimateSharedLayout>
-        {isExpanded ? (
-          <ExpandedCard onCollapse={collapseDate} product={product} />
-        ) : (
-          <CompactCard onExpand={expandDate} product={product} />
-        )}
-      </AnimateSharedLayout>
-    </div>
-  );
+	return (
+		<div className="card-container">
+			<AnimateSharedLayout>
+				{isExpanded ? (
+					<ExpandedCard onCollapse={collapseDate} product={product} />
+				) : (
+					<CompactCard onExpand={expandDate} product={product} />
+				)}
+			</AnimateSharedLayout>
+		</div>
+	);
 };
 
 export default ExpandibleProduct;
