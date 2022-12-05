@@ -17,6 +17,11 @@ const Nav = styled.nav`
     padding: 5px 0;
     cursor: pointer;
   }
+  .cart-log {
+    img {
+      width: 20px;
+    }
+  }
   @media (max-width: 768px) {
     position: fixed;
     justify-content: flex-end;
@@ -34,7 +39,8 @@ const Nav = styled.nav`
     .user {
       width: 30px;
     }
-    .loggedin {
+    ${
+      "" /* .loggedin {
       width: 110%;
       display: flex;
       align-items: center;
@@ -62,6 +68,18 @@ const Nav = styled.nav`
           font-weight: bolder;
         }
       }
+    } */
+    }
+    .loggedin {
+      display: flex;
+      p {
+        font-size: 1em;
+        font-weight: bolder;
+      }
+      img {
+        width: 25px;
+        margin-left: .5em;
+      }
     }
   }
 `;
@@ -79,18 +97,20 @@ const Navbar = () => {
           <img
             src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670081881/icons/1buy1Logo-01_pnqmca.svg"
             alt="logo"
-            className="logo"
           />
         </NavLink>
       </div>
       <div className="header--user">
         {token && (
-          <>
+          <div className="loggedin">
             <p>{user.name}</p>
-            <NavLink to="/cart">
-              <img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670174228/icons/carrito-05_xxbnqm.svg" alt="Carrito"/>
+            <NavLink to="/cart" className="cart-logo">
+              <img
+                src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670174228/icons/carrito-05_xxbnqm.svg"
+                alt="Carrito"
+              />
             </NavLink>
-          </>
+          </div>
         )}
         {!token && (
           <>

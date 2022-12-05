@@ -10,9 +10,7 @@ const Home = () => {
           1<span className="buy">BUY</span>1 - Tu comparador de confianza
         </h1>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente ab, nulla eveniet
-          veritatis soluta sunt qui quibusdam dolorem nobis quod porro laborum consectetur ipsa? Sit
-          odio provident eaque illo illum?
+          Te ayudamos a ahorrar comparando el precio de un mismo producto en diferentes supermercados. Ofertas y precios garantizados día a día. 1BUY1  te ofrece, en exclusivo para Usuarios Registrados, la posibilidad de automatizar tu compra de manera eficiente. 
         </p>
       </div>
       <div className="links--container">

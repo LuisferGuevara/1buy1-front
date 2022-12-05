@@ -18,7 +18,7 @@ function ExpandedCard({ product, onCollapse }) {
 	return (
 		<>
 			<motion.p
-				className="expanded secondary"
+				className="expanded overlay"
 				onClick={onCollapse}
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
@@ -60,7 +60,9 @@ function ExpandedCard({ product, onCollapse }) {
 					<button onClick={() => setPriceToggle(!priceToggle)}>
 						{priceToggle ? "Mostrar precio Kg/L" : "Mostrar precio unidad"}
 					</button>
-					{token && <img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670257472/icons/addToCart-09_ikgf0i.svg" alt="Añadir al carrito"/>}
+					{token && <div className="cart-logo">
+						<img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670265008/icons/addToCart-yellow-10_qyg1bb.svg" alt="Añadir al carrito"/>
+					</div>}
 				</div>
 			</motion.div>
 		</>

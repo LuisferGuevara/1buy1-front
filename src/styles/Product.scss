@@ -43,7 +43,6 @@
         }
       }
     }
-
     .expanded {
       height: 100vh;
       width: 100vw;
@@ -54,7 +53,7 @@
       right: 0;
       margin: 0;
     }
-    .secondary {
+    .overlay {
       background-color: #e8c18baf;
       position: fixed;
       width: 100%;
@@ -151,6 +150,9 @@
             font-size: 0.8em;
             font-weight: 500;
           }
+          .cheapest{
+            color: #f6b637;
+          }
           .comparator--prices {
             display: flex;
             #price--unit {
@@ -165,17 +167,34 @@
       }
     }
     .card--button {
+      display: flex;
+      justify-content: center;
+      position: relative;
       padding-top: 1em;
+      width: 100%;
 
       button {
         padding: 0.4em;
         background-color: #f6b637;
-        width: 90px;
+        width: 120px;
         display: flex;
         font-size: 0.8em;
         font-weight: bold;
         border-radius: 4px;
         cursor: pointer;
+      }
+      .cart-logo {
+        position: absolute;
+        right: 0;
+        align-self: flex-end;
+        width: 40px;
+
+        img {
+          border: 4px;
+          padding: 0.2em;
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
