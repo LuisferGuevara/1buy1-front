@@ -47,7 +47,7 @@ function ExpandedCard({ product, onCollapse }) {
                 <div className="comparator--prices">
                   {priceToggle ? (
                     <p id="price--unit" className={supermarket.priceUd === minUd ? "cheapest" : ""}>
-                      {supermarket.priceUd}€
+                      {supermarket.priceUd} €
                     </p>
                   ) : (
                     <>
