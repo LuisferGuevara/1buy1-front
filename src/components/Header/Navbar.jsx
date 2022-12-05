@@ -44,22 +44,22 @@ const Nav = styled.nav`
         text-align: center;
         text-transform: uppercase;
         font-weight: bolder;
-
         font-size: 0.8em;
         width: fit-content;
-        border-bottom: 1px solid #223137;
       }
       button {
         background: transparent;
         display: flex;
         flex-direction: column;
         align-items: center;
+        
         .logot--logo {
           width: 25px;
           background-color: #f6b637;
+          
         }
         span {
-          font-size: 0.5em;
+          font-size: 0.8em;
           font-weight: bolder;
         }
       }
@@ -97,7 +97,7 @@ const Navbar = () => {
                 src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670171708/icons/logoutIcon-01_ywpjwq.svg"
                 alt="Cerrar sesión logo"
               />
-              <span>Cerrar Sesión</span>
+              <span>Salir</span>
             </button>
           </div>
         )}
