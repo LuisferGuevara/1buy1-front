@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { logoutUser } from "../../redux/Auth/auth.functions";
 import Burger from "./Burger";
 
 const Nav = styled.nav`
@@ -68,10 +67,7 @@ const Nav = styled.nav`
 `;
 
 const Navbar = () => {
-  const { token } = useSelector((state) => state.auth);
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const { token, user } = useSelector((state) => state.auth);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -89,16 +85,7 @@ const Navbar = () => {
       </div>
       <div className="header--user">
         {token && (
-          <div className="loggedin">
-            <button onClick={() => logoutUser(navigate, dispatch)}>
-              <img
-                className="logot--logo"
-                src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670171708/icons/logoutIcon-01_ywpjwq.svg"
-                alt="Cerrar sesión logo"
-              />
-              <span>Salir</span>
-            </button>
-          </div>
+          <p>{user.name}</p>
         )}
         {!token && (
           <>
