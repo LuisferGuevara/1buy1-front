@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Filters from "../components/Filters";
-import ExpandibleProduct from "../components/ExpandibleProduct";
+import ExpandibleProduct from "../components/Product";
 import { getProducts } from "../redux/Products/products.functions";
 import "../styles/Comparator.scss";
 
