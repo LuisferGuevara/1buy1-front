@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -47,8 +48,16 @@ const Ul = styled.ul`
 `;
 
 const LeftNav = ({ isOpen, setIsOpen }) => {
+
+  const { token } = useSelector((state) => state.auth);
+
   return (
     <Ul isOpen={isOpen}>
+      {token && 
+      <li onClick={() => setIsOpen(false)} >
+        <NavLink to="/profile">Profile</NavLink>
+      </li>
+      }
       <li onClick={() => setIsOpen(false)}>
         <NavLink to="/">Home</NavLink>
       </li>

@@ -68,7 +68,7 @@ const Nav = styled.nav`
 `;
 
 const Navbar = () => {
-  const { token, user } = useSelector((state) => state.auth);
+  const { token } = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
