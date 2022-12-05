@@ -27,7 +27,7 @@
         margin-bottom: 14px;
         line-height: 1.2em;
       }
-      label{
+      label {
         margin-bottom: 10px;
       }
       .input {
@@ -40,14 +40,6 @@
         border-radius: 4px;
         margin-bottom: 6px;
         color: whitesmoke;
-        // border-color: hsl(var(--input-focus-h), var(--input-focus-s), var(--input-focus-l));
-        // transition: 180ms box-shadow ease-in-out;
-        // animation: fadein 1.1s;
-        // &:focus {
-        //   box-shadow: 0 0 0 3px
-        //     hsla(var(--input-focus-h), var(--input-focus-s), calc(var(--input-focus-l) + 40%), 0.8);
-        //   outline: 3px solid transparent;
-        // }
         &::placeholder {
           color: whitesmoke;
         }

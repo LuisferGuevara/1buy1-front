@@ -17,9 +17,6 @@ const Home = () => {
         <NavLink to="/comparator" className="links--comparator">
           Empieza a COMPARAR
         </NavLink>
-        <NavLink to="/tutorial" className="links--tutorial">
-          Guía de Uso
-        </NavLink>
       </div>
     </div>
   );

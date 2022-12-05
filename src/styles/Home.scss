@@ -74,11 +74,16 @@
 
     .links--comparator {
       background-color: #f6b637;
-      margin: 0 auto;
+      margin: 4% auto;
       padding: 1.2em;
-      width: 70%;
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
       border: 2px solid #223137;
       border-radius: 4px;
+      font-size: 1.4em;
       color: #223137;
       font-weight: 600;
       @media (min-width: 769px) {
