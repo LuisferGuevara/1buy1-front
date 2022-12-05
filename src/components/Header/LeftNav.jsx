@@ -60,7 +60,11 @@ const LeftNav = ({ isOpen, setIsOpen }) => {
 			<li onClick={() => setIsOpen(false)}>
 				<NavLink to="/comparator">Comparador</NavLink>
 			</li>
-			<li onClick={() => setIsOpen(false)}>Compra eficiente </li>
+      {token && (
+        <li onClick={() => setIsOpen(false)}>
+          <NavLink to="/cart">Compra eficiente</NavLink>
+        </li>
+      )}
 			<li onClick={() => setIsOpen(false)}>About US ?</li>
 			{token && (
 				<li onClick={() => setIsOpen(false)}>

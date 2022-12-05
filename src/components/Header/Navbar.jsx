@@ -85,7 +85,12 @@ const Navbar = () => {
       </div>
       <div className="header--user">
         {token && (
-          <p>{user.name}</p>
+          <>
+            <p>{user.name}</p>
+            <NavLink to="/cart">
+              <img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670174228/icons/carrito-05_xxbnqm.svg" alt="Carrito"/>
+            </NavLink>
+          </>
         )}
         {!token && (
           <>
