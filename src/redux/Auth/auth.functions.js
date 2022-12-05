@@ -16,6 +16,7 @@ export const postUser = async (data, navigate, dispatch) => {
       const result = await API.post("/users/login", data);
       dispatch({ type: "loginUser", payload: result.data });
       localStorage.setItem("token", result.data.token);
+      localStorage.setItem("cart", "[]");
       navigate("/");
     } catch (error) {
       dispatch({ type: "loginError", payload:error.response.data });
@@ -50,16 +51,16 @@ export const postUser = async (data, navigate, dispatch) => {
     navigate("/comparator");
   };
 
-  export const pushToCart = (cart, product, setOnCart, dispatch) => {
-    cart.push(product);
-    dispatch({type: "setCart", payload: cart})
+  export const pushToCart = ( product, setIsInCart ) => {
+    const cart = JSON.parse(localStorage.getItem("cart"))
+    cart.push(product)
     localStorage.setItem("cart", JSON.stringify(cart))
-    setOnCart(true)
+    setIsInCart(true)
   }
 
-  export const removeFromCart = (cart, product, setOnCart, dispatch) => {
+  export const removeFromCart = ( product, setIsInCart ) => {
+    let cart = JSON.parse(localStorage.getItem("cart"))
     cart = cart.filter(cartProduct => cartProduct.name !== product.name)
-    dispatch({type: "setCart", payload: cart})
     localStorage.setItem("cart", JSON.stringify(cart))
-    setOnCart(false)
+    setIsInCart(false)
   }

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import "../styles/Product.scss";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { pushToCart, removeFromCart } from "../redux/Auth/auth.functions";
 
 function ExpandedCard({ product, onCollapse }) {
 
-	const { token, cart } = useSelector(state => state.auth)
-	const dispatch = useDispatch()
+	const { token } = useSelector(state => state.auth)
 	
 	const { supermarkets } = product;
 	
@@ -16,13 +15,13 @@ function ExpandedCard({ product, onCollapse }) {
 	let minL = supermarkets.reduce((prev, curr) => (prev.priceL < curr.priceL ? prev : curr)).priceL;
 	
 	const [priceToggle, setPriceToggle] = useState(false);
-	const [onCart, setOnCart] = useState(false);
+	const [ isInCart, setIsInCart ] = useState(product.inCart)
+
+	console.log(product);
 	
 	useEffect(() => {
-		cart.find(cartProduct => cartProduct.name === product.name) ? setOnCart(true) : setOnCart(false);
-    	//eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
-	
+		product.inCart = isInCart
+	}, [isInCart])
 
 	return (
 		<>
@@ -69,10 +68,10 @@ function ExpandedCard({ product, onCollapse }) {
 					<button onClick={() => setPriceToggle(!priceToggle)}>
 						{priceToggle ? "Mostrar precio Kg/L" : "Mostrar precio unidad"}
 					</button>
-					{(token && !onCart) && <div className="cart-logo" onClick={() => pushToCart(cart, product, setOnCart, dispatch)}>
+					{(token && !isInCart) && <div className="cart-logo" onClick={() => pushToCart(product, setIsInCart)}>
 						<img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670265008/icons/addToCart-yellow-10_qyg1bb.svg" alt="Añadir al carrito"/>
 					</div>}
-					{(token && onCart) && <div className="cart-logo" onClick={() => removeFromCart(cart, product, setOnCart, dispatch)}>
+					{(token && isInCart) && <div className="cart-logo" onClick={() => removeFromCart(product, setIsInCart)}>
 						<img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670269180/icons/carritoLogo/removeFromCart-yellow-13_f80lxj.svg" alt="Añadir al carrito"/>
 					</div>}
 				</div>
@@ -95,11 +94,11 @@ function CompactCard({ product, onExpand }) {
 const ExpandibleProduct = ({ product }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
 
-	const collapseDate = () => {
+	const collapseProduct = () => {
 		setIsExpanded(false);
 	};
 
-	const expandDate = () => {
+	const expandProduct = () => {
 		setIsExpanded(true);
 	};
 
@@ -107,9 +106,9 @@ const ExpandibleProduct = ({ product }) => {
 		<div className="card-container">
 			<AnimateSharedLayout>
 				{isExpanded ? (
-					<ExpandedCard onCollapse={collapseDate} product={product} />
+					<ExpandedCard onCollapse={collapseProduct} product={product} />
 				) : (
-					<CompactCard onExpand={expandDate} product={product} />
+					<CompactCard onExpand={expandProduct} product={product} />
 				)}
 			</AnimateSharedLayout>
 		</div>

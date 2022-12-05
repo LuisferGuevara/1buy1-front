@@ -22,8 +22,10 @@ function App() {
   const cart = localStorage.getItem("cart");
   
   useEffect(() => {
-    token && checkSession(token, navigate, dispatch);
-    cart && dispatch({type: "setCart", payload: JSON.parse(cart)});
+    if (token) {
+      checkSession(token, navigate, dispatch);
+      !cart && localStorage.setItem("cart", "[]")
+    }
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

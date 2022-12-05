@@ -3,7 +3,6 @@ const INITIAL_STATE = {
    token: null,
    error: false,
    isLoading: false,
-   cart: []
 }
 
 const authReducer = (state = INITIAL_STATE, action) => {
@@ -23,8 +22,6 @@ const authReducer = (state = INITIAL_STATE, action) => {
         putError: { ...state, error: action.payload },
 
         userChecksession: { ...state, token: action.payload?.token, user:action.payload?.user },
-
-        setCart: { ...state, cart: action.payload }
 
     };
 
