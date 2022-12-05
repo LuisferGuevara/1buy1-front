@@ -1,5 +1,6 @@
 const INITAL_STATE = {
     products: [],
+    category: [],
     filter: [],
     isLoading: false,
     error: false
@@ -8,13 +9,16 @@ const INITAL_STATE = {
 
 const productsReducer = ( state = INITAL_STATE, action ) => {
     const trial = {
-        getProducts: { ...state, products: action.payload },
+        getProducts: { ...state, products: action.payload, error: false },
         errorProducts: { ...state, error: action.payload, products: [] },
+        setCategory: { ...state, category: action.payload, filter: action.payload },
         setFilter: { ...state, filter: action.payload }
     };
 
     return trial[action.type] || state;
 }
+
+
 
 
 

@@ -6,6 +6,7 @@ export const postUser = async (data, navigate, dispatch) => {
       dispatch({ type: "registerUser", payload: result.data });
       navigate("/login");
     } catch (error) {
+      console.log(error);
       dispatch({ type: "registerError", payload: error.message });
     }
   };

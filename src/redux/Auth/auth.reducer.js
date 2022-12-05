@@ -9,14 +9,14 @@ const authReducer = (state = INITIAL_STATE, action) => {
 
     const trial = {
 
-        loginUser: { ...state, user: action.payload?.userDb, token: action.payload?.token },
-        loginError: { ...state, error: action.payload },
+        loginUser: { ...state, user: action.payload?.userDb, token: action.payload?.token, error: false },
+        loginError: { ...INITIAL_STATE, error: action.payload },
 
-        registerUser: { ...state, user: action.payload },
-        registerError: { ...state, error: action.payload },
+        registerUser: { ...state, user: action.payload, error: false },
+        registerError: { ...INITIAL_STATE, error: action.payload },
 
         logoutUser: { ...INITIAL_STATE },
-        logoutError: { ...state, error: action.payload },
+        logoutError: { ...INITIAL_STATE, error: action.payload },
 
         userChecksession: { ...state, token: action.payload?.token, user:action.payload?.user },
 
