@@ -90,7 +90,6 @@ const Navbar = () => {
       <div className="header--user">
         {token && (
           <div className="loggedin">
-            <p className="user--name"> {user.username} </p>
             <button onClick={() => logoutUser(navigate, dispatch)}>
               <img
                 className="logot--logo"

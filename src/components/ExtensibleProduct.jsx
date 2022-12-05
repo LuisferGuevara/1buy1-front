@@ -50,15 +50,14 @@ function ExpandedCard({ product, onCollapse }) {
 }
 
 function CompactCard({ product, onExpand }) {
-  console.log(product);
-  return (
-    <motion.div className="food-item" layoutId="expandable-card" onClick={onExpand}>
-      <div className="food-item__image">
-        <img src={product.img} alt={product.name} />
-      </div>
-      <h2>{product.name}</h2>
-    </motion.div>
-  );
+	return (
+		<motion.div className="food-item" layoutId="expandable-card" onClick={onExpand}>
+			<div className="food-item__image">
+				<img src={product.img} alt={product.name} />
+			</div>
+			<h2>{product.name}</h2>
+		</motion.div>
+	);
 }
 
 const ExpandibleProduct = ({ product }) => {

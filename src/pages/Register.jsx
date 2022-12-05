@@ -57,7 +57,7 @@ const Register = () => {
               placeholder="Apellidos"
               className="input"
               {...register("lastName", {
-                required: "Introduce un nombre",
+                required: "Introduce un apellido",
                 pattern: {
                   value: /^(?=.*[a-z])\w{2,40}$/i,
                   message: "Los apellidos deben tener entre 2 y 40 caracteres",

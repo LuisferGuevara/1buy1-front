@@ -18,6 +18,9 @@ const authReducer = (state = INITIAL_STATE, action) => {
         logoutUser: { ...INITIAL_STATE },
         logoutError: { ...INITIAL_STATE, error: action.payload },
 
+        putUser: { ...state, user: action.payload, error: false },
+        putError: { ...state, error: action.payload },
+
         userChecksession: { ...state, token: action.payload?.token, user:action.payload?.user },
 
     };
