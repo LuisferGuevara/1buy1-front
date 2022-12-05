@@ -13,12 +13,6 @@ function ExpandedCard({ product, onCollapse }) {
 	let minKg = supermarkets.reduce((prev, curr) => (prev.priceKg < curr.priceKg ? prev : curr)).priceKg;
 	let minL = supermarkets.reduce((prev, curr) => (prev.priceL < curr.priceL ? prev : curr)).priceL;
 
-	console.log(minUd, minKg, minL);
-
-	/* supermarkets.map((supermarket) => {
-		if (supermarket === min) console.log(supermarket);
-	}); */
-
 	const [priceToggle, setPriceToggle] = useState(false);
 
 	return (
