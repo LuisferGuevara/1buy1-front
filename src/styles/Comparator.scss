@@ -1,6 +1,7 @@
 .comparator--section {
   width: 100%;
   padding-top: 76px;
+  min-height: 750px;
   height: 100%;
   padding-bottom: 100px;
   background-color: #efefef;
@@ -15,51 +16,22 @@
       font-weight: bolder;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      // animation: fadein 0.5s;
-
-      // @keyframes fadein {
-      //   0% {
-      //     opacity: 0;
-      //   }
-      //   80% {
-      //     opacity: 0;
-      //   }
-      //   100% {
-      //     opacity: 1;
-      //   }
-      // }
     }
-    .all--products button span{
+    .all--products button span {
       margin-left: 2em;
       padding-bottom: 2px;
-
       &:hover,
       :focus {
         box-shadow: 0 0.8em 0.5em -0.4em #f6b637;
         transform: translateY(-0.25em);
         font-weight: bold;
       }
-
-
     }
     .input--box {
       position: relative;
       padding: 0.5em 1em 1em;
       margin: 10px auto;
       width: 92%;
-      // animation: fadein 0.5s;
-
-      // @keyframes fadein {
-      //   0% {
-      //     opacity: 0;
-      //   }
-      //   80% {
-      //     opacity: 0;
-      //   }
-      //   100% {
-      //     opacity: 1;
-      //   }
-      // }
       .input {
         border-radius: 4px;
         border: 1px solid #223137;
@@ -81,20 +53,6 @@
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
-      // animation: fadein 1s;
-
-      // @keyframes fadein {
-      //   0% {
-      //     opacity: 0;
-      //   }
-      //   80% {
-      //     opacity: 0;
-      //   }
-      //   100% {
-      //     opacity: 1;
-      //   }
-      // }
-
       li {
         width: 30%;
         margin-bottom: 20px;
@@ -132,12 +90,5 @@
         margin: 0.8em;
       }
     }
-  }
-  .products--billboard {
-    margin: 0 auto;
-    width: 85%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
   }
 }

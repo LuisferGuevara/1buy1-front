@@ -55,7 +55,7 @@ const LeftNav = ({ isOpen, setIsOpen }) => {
     <Ul isOpen={isOpen}>
       {token && 
       <li onClick={() => setIsOpen(false)} >
-        <NavLink to="/profile">Profile</NavLink>
+        <NavLink to="/profile">Datos Personales</NavLink>
       </li>
       }
       <li onClick={() => setIsOpen(false)}>
