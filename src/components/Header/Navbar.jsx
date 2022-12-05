@@ -47,7 +47,7 @@ const Nav = styled.nav`
       }
       img {
         width: 25px;
-        margin-left: .5em;
+        margin-left: 0.5em;
       }
     }
   }

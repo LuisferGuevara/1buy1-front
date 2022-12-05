@@ -69,8 +69,12 @@ const Login = () => {
           </label>
           {errors.password ? (
             <>
-              {errors.password.type === "required" && <p className="error">{errors.password.message}</p>}
-              {errors.password.type === "pattern" && <p className="error">{errors.password.message}</p>}
+              {errors.password.type === "required" && (
+                <p className="error">{errors.password.message}</p>
+              )}
+              {errors.password.type === "pattern" && (
+                <p className="error">{errors.password.message}</p>
+              )}
             </>
           ) : null}
           <p className="form--register">
