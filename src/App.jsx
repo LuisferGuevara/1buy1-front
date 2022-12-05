@@ -6,6 +6,7 @@ import Navbar from "./components/Header/Navbar";
 import { checkSession } from "./redux/Auth/auth.functions";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import Profile from "./pages/Profile";
 
 
 
@@ -27,6 +28,7 @@ function App() {
       <Route path="/comparator" element={<Comparator/>} />
       <Route path="/register" element={<Register/>} />
       <Route path="/login" element={<Login/>} />
+      <Route path="/profile" element={<Profile/>} />
     </Routes>
     <Footer/>
     </div>
