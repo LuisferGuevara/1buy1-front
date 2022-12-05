@@ -1,44 +1,182 @@
-.food-item{
-    background-color:#f6b637;
+.products--billboard {
+  margin: 0 auto;
+  width: 85%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  position: relative;
+
+  .card-container {
     width: 40%;
-    height: 150px;
+    height: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
-  padding-top: 1em;
-    margin: 1em;
-    border-radius: 50%;
-    // animation: fadein 1.4s;
 
-    //   @keyframes fadein {
-    //     0%{
-    //         opacity: 0;
-    //     }
-    //     80% {
-    //       opacity: 0;
-    //     }
-    //     100%{
-    //       opacity: 1;
-    //     }
-    //   }
-    h2{
+    .food-item {
+      background-color: #f6b637;
+      padding: 1.2em;
+      border-radius: 50%;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1em;
+      cursor: pointer;
+      h2 {
         text-transform: uppercase;
-        font-size: .8em; 
+        font-size: 0.8em;
         color: black;
         line-height: 1;
         font-weight: 500;
         padding-top: 1em;
-
-    }
-    .food-item__image{
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      }
+      .food-item__image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 80px;
-        img{
-        width: 60px;
-        object-fit: contain;
-
-    }       
+        img {
+          width: 60px;
+          object-fit: contain;
+        }
+      }
     }
+
+    .expanded {
+      height: 100vh;
+      width: 100vw;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: 0;
+    }
+    .secondary {
+      background-color: #e8c18baf;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+    .card--expanded {
+      background-color: #223137;
+      width: 350px;
+      height: 400px;
+      position: fixed;
+      padding: 1em 1.5em;
+      border-radius: 4px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      .card--expanded__top-section {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1em;
+        .card--expanded__d {
+          display: flex;
+          width: 80%;
+          align-items: center;
+          h4 {
+            color: #efefef;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-align: start;
+            padding-left: 1em;
+          }
+          .card--expanded__top-section--img {
+            display: flex;
+            background-color: #f6b637;
+            padding: 0.4em;
+            border-radius: 4px;
+
+            img {
+              width: 30px;
+            }
+          }
+        }
+        button {
+          background: transparent;
+          color: #efefef;
+          font-weight: bolder;
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
+      .comparator--info__box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 100%;
+        height: 70%;
+      }
+      .comparator--info {
+        display: flex;
+
+        .comparator--info__img {
+          width: 40px;
+          display: flex;
+          align-items: flex-start;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            color: #f6b637;
+          }
+        }
+        .comparator--info__metatext {
+          padding-left: 1em;
+          width: 100%;
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+          p {
+            color: #efefef;
+            text-align: start;
+            font-size: 0.8em;
+            font-weight: 500;
+          }
+          .comparator--prices {
+            display: flex;
+            #price--unit {
+              margin-right: 1em;
+            }
+            p {
+              font-size: 1em;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+    .card--button {
+      padding-top: 1em;
+
+      button {
+        padding: 0.4em;
+        background-color: #f6b637;
+        width: 90px;
+        display: flex;
+        font-size: 0.8em;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+  }
 }
