@@ -39,37 +39,6 @@ const Nav = styled.nav`
     .user {
       width: 30px;
     }
-    ${
-      "" /* .loggedin {
-      width: 110%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      p {
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: bolder;
-        font-size: 0.8em;
-        width: fit-content;
-      }
-      button {
-        background: transparent;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-        .logot--logo {
-          width: 25px;
-          background-color: #f6b637;
-          
-        }
-        span {
-          font-size: 0.8em;
-          font-weight: bolder;
-        }
-      }
-    } */
-    }
     .loggedin {
       display: flex;
       p {

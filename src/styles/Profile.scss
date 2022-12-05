@@ -1,56 +1,50 @@
-.update--profile{
-
-    min-height: 700px;
-    form{
-        label{
-            margin-top: 20px;
-
-        }
+.update--profile {
+  min-height: 700px;
+  form {
+    label {
+      margin-top: 20px;
     }
+  }
 }
-.profile--section{
-    padding-top: 76px;
+.profile--section {
+  padding-top: 76px;
 
-    min-height: 700px;
-    height: 100%;
+  min-height: 700px;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  .profile--container {
     display: flex;
-    align-items:flex-start;
-    justify-content: center;
-    .profile--container{
-        // background-color: #e8c18baf;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: space-evenly;
-        width: 80%;
-        height: 400px;
-        .profile--entry{
-            display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 400px;
+    .profile--entry {
+      display: flex;
 
-            justify-content: flex-start;
-            width: 100%;
-            border-bottom: 1px solid #223137;
-            h2{
-                text-align: start;
-                font-weight: bold;
-                letter-spacing: 1px;
-                padding-bottom: .5em;
-            }
-            p{
-                text-align: start;
-                padding-left: .5em;
-
-            }
-        }
-
-        button{
-            align-self: center;
-            background-color: #f6b637;
-            padding: .5em 1em;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
+      justify-content: flex-start;
+      width: 100%;
+      border-bottom: 1px solid #223137;
+      h2 {
+        text-align: start;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding-bottom: 0.5em;
+      }
+      p {
+        text-align: start;
+        padding-left: 0.5em;
+      }
     }
-    
+
+    button {
+      align-self: center;
+      background-color: #f6b637;
+      padding: 0.5em 1em;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
 }

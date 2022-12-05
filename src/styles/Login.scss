@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
-:root {
-  --input-border: #8b8a8b;
-  --input-focus-h: 245;
-  --input-focus-s: 100%;
-  --input-focus-l: 42%;
-}
+// :root {
+//   --input-border: #8b8a8b;
+//   --input-focus-h: 245;
+//   --input-focus-s: 100%;
+//   --input-focus-l: 42%;
+// }
 
 .login {
   width: 100%;
@@ -107,9 +107,9 @@
         }
       }
       .form--register a {
-          color: blue;
-          text-decoration: underline;
-        }
+        color: blue;
+        text-decoration: underline;
+      }
 
       .error {
         color: #db1c22;
