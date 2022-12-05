@@ -32,7 +32,6 @@ function ExpandedCard({ product, onCollapse }) {
 }
 
 function CompactCard({ product, onExpand }) {
-  console.log(product);
 	return (
 		<motion.div className="food-item" layoutId="expandable-card" onClick={onExpand}>
 			<div className="food-item__image">
