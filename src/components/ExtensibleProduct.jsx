@@ -80,7 +80,7 @@ function ExpandedCard({ product, onCollapse }) {
 						{priceToggle ? "Mostrar precio Kg/L" : "Mostrar precio unidad"}
 					</button>
 					{(token && !isInCart) && <div className="cart-logo" onClick={() => pushToCart(product, setIsInCart)}>
-						<img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670265008/icons/addToCart-yellow-10_qyg1bb.svg" alt="Añadir al carrito"/>
+						<img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670265008/icons/carritoLogo/addToCart-yellow-10_qyg1bb.svg" alt="Añadir al carrito"/>
 					</div>}
 					{(token && isInCart) && <div className="cart-logo" onClick={() => removeFromCart(product, setIsInCart)}>
 						<img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670269180/icons/carritoLogo/removeFromCart-yellow-13_f80lxj.svg" alt="Añadir al carrito"/>
