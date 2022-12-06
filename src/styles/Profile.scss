@@ -1,6 +1,12 @@
 .update--profile {
   min-height: 700px;
+  max-width: 1200px;
+  margin: 0 auto;
+  @media (min-width: 769px) {
+    height: 80vh;
+  }
   form {
+    
     label {
       margin-top: 20px;
     }
@@ -8,8 +14,12 @@
 }
 .profile--section {
   padding-top: 76px;
-
   min-height: 700px;
+  max-width: 1200px;
+  @media (min-width: 769px) {
+    height: 80vh;
+  }
+  margin: 0 auto;;
   height: 100%;
   display: flex;
   align-items: flex-start;

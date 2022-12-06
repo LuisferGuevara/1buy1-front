@@ -24,7 +24,7 @@ const Ul = styled.ul`
     z-index: -1;
     position: fixed;
     transform: ${({ isOpen }) => (isOpen ? "translateX(0)" : "translateX(-500%)")};
-    top: 56px;
+    top: 55px;
     left: 0;
     min-height: fit-content;
     height: 1000vh;
@@ -50,6 +50,38 @@ const Ul = styled.ul`
       img {
         margin-left: 1em;
         width: 25px;
+      }
+    }
+  }
+  @media (min-width: 769px) {
+    font-size: 12px;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    width: 60%;
+
+    li {
+      display: flex;
+      width: 35%;
+      margin: 0;
+      padding: 0;
+      font-weight: bolder;
+    }
+    .logout {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: 0;
+      .icon--box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 19px;
+      }
+      img {
+        margin-left: 0.5em;
+        width: 100%;
+        objet-fit: contain;
       }
     }
   }
@@ -89,11 +121,13 @@ const LeftNav = ({ isOpen, setIsOpen }) => {
           }}
         >
           <p>Cerrar sesión</p>
-          <img
-            className="logot--logo"
-            src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670171708/icons/logoutIcon-01_ywpjwq.svg"
-            alt="Cerrar sesión logo"
-          />
+          <div className="icon--box">
+            <img
+              className="logot--logo"
+              src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670171708/icons/logoutIcon-01_ywpjwq.svg"
+              alt="Cerrar sesión logo"
+            />
+          </div>
         </li>
       )}
     </Ul>
