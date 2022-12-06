@@ -1,0 +1,57 @@
+.teamGallery_container {
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  height: 100vh;
+
+  h1 {
+  font-size: 32px;
+  font-weight: 700;
+  }
+  .teamGallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+
+    .memberCard {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      height: 300px;
+      width: 150px;
+
+        img {
+          width: 100%;
+          height: 50%;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+
+      .info_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+  
+    
+  }
+
+  }
+}
