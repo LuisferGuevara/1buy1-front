@@ -5,7 +5,6 @@ import {  useSelector } from "react-redux";
 import { pushToCart, removeFromCart } from "../redux/Auth/auth.functions";
 
 function ExpandedCard({ product, onCollapse }) {
-  const { token } = useSelector((state) => state.auth);
 
 	const { token } = useSelector(state => state.auth)
 	
