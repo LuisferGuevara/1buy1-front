@@ -43,7 +43,7 @@ const EditProfileForm = ({setEdit}) => {
               {...register("name", {
                 required: "Introduce un nombre",
                 pattern: {
-                  value: /^(?=.*[a-z])\w{4,16}$/i,
+                  value: /^[\w\s\u00C0-\u017F]{4,16}$/i,
                   message: "El nombre debe tener entre 4 y 16 caracteres",
                 },
               })}
@@ -63,7 +63,7 @@ const EditProfileForm = ({setEdit}) => {
               {...register("lastName", {
                 required: "Introduce un apellido",
                 pattern: {
-                  value: /^(?=.*[a-z])\w{2,40}$/i,
+                  value: /^[\w\s\u00C0-\u017F]{2,40}$/i,
                   message: "Los apellidos deben tener entre 2 y 40 caracteres",
                 },
               })}
