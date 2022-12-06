@@ -40,7 +40,7 @@ const StyledBurger = styled.div`
   }
 `;
 
-const Burger = ({ isOpen, setIsOpen }) => {
+const Burger = ({ isOpen, setIsOpen, setIsInCart }) => {
   return (
     <>
       <StyledBurger isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
@@ -48,7 +48,7 @@ const Burger = ({ isOpen, setIsOpen }) => {
         <div />
         <div />
       </StyledBurger>
-      <LeftNav isOpen={isOpen} setIsOpen={setIsOpen} />
+      <LeftNav isOpen={isOpen} setIsOpen={setIsOpen} setIsInCart={setIsInCart}/>
     </>
   );
 };

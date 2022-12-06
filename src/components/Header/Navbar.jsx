@@ -131,9 +131,9 @@ const Navbar = () => {
   return (
     <Nav>
       <div className="menu--box">
-        <Burger isOpen={isOpen} setIsOpen={setIsOpen} />
+        <Burger isOpen={isOpen} setIsOpen={setIsOpen} setIsInCart={setIsInCart}/>
         <div className="logo">
-          <NavLink to="/" onClick={() => setIsOpen(false)}>
+          <NavLink to="/" onClick={() => {setIsOpen(false); setIsInCart(false)}}>
             <img
               src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670081881/icons/1buy1Logo-01_pnqmca.svg"
               alt="logo"
@@ -146,7 +146,7 @@ const Navbar = () => {
               <p>{user.name}</p>
               {!isInCart ?
               
-              <NavLink to="/cart" onClick={dispatchRedux} className="cart-logo">
+              <NavLink to="/cart" onClick={() => {dispatchRedux(); setIsOpen(false); setIsInCart(true)}} className="cart-logo">
                 <div className="cart--logo__box">
                   <img
                     src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670174228/icons/carrito-05_xxbnqm.svg"
@@ -154,10 +154,12 @@ const Navbar = () => {
                   />
                 </div>
               </NavLink> :
-              <NavLink to="/comparator" onClick={() => setIsInCart(false)} className="cart-logo">
+              <NavLink to="/comparator" onClick={() => {setIsInCart(false); setIsOpen(false); setIsInCart(false)}} className="cart-logo">
                 <div className="cart--logo__box">
                   <img
-                    src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670174228/icons/carrito-05_xxbnqm.svg"
+                    src="
+                    https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670361484/icons/comparatorIcon/balanceIcon-01_wgx02i.svg
+                    "
                     alt="Carrito"
                   />
                 </div>
@@ -167,7 +169,7 @@ const Navbar = () => {
           )}
           {!token && (
             <>
-              <NavLink to="/login" onClick={() => setIsOpen(false)}>
+              <NavLink to="/login" onClick={() => {setIsOpen(false); setIsInCart(false)}}>
                 <img
                   src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670171968/icons/user-02_wuc8uu.svg"
                   alt="userIcon"

@@ -87,7 +87,7 @@ const Ul = styled.ul`
   }
 `;
 
-const LeftNav = ({ isOpen, setIsOpen }) => {
+const LeftNav = ({ isOpen, setIsOpen, setIsInCart}) => {
   const { token } = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
@@ -95,22 +95,22 @@ const LeftNav = ({ isOpen, setIsOpen }) => {
 
   return (
     <Ul isOpen={isOpen}>
-      <li onClick={() => setIsOpen(false)}>
+      <li onClick={() => {setIsOpen(false); setIsInCart(false)}}>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li onClick={() => setIsOpen(false)}>
+      <li onClick={() => {setIsOpen(false); setIsInCart(false)}}>
         <NavLink to="/comparator">Comparador</NavLink>
       </li>
       {token && (
-        <li onClick={() => setIsOpen(false)}>
+        <li onClick={() => {setIsOpen(false); setIsInCart(false)}}>
           <NavLink to="/cart">Compra eficiente</NavLink>
         </li>
       )}
-      <li onClick={() => setIsOpen(false)}>
+      <li onClick={() => {setIsOpen(false); setIsInCart(false)}}>
       <NavLink to="/aboutUs">Sobre nosotros</NavLink>
       </li>
       {token && (
-        <li onClick={() => setIsOpen(false)}>
+        <li onClick={() => {setIsOpen(false); setIsInCart(false)}}>
           <NavLink to="/profile">Datos personales</NavLink>
         </li>
       )}
@@ -119,6 +119,7 @@ const LeftNav = ({ isOpen, setIsOpen }) => {
           className="logout"
           onClick={() => {
             setIsOpen(false);
+            setIsInCart(false);
             logoutUser(navigate, dispatch);
           }}
         >

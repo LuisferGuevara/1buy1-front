@@ -21,25 +21,23 @@ const CompraEficiente = () => {
 	setCartState(cartState.map((product, j) => 
 	j !== i ? product :
 	({...product, units: product.units +1})));
-  }
+}
+console.log(cartState);
 
   let cartStorage = JSON.parse(localStorage.getItem("cart"));
 
   // Add generic price with its unit (Kg or L);
-  let pricePer = "";
-  let unit = "";
   const cartUltraAwesome = cartState.map(
     (product) =>{
 		let unitsP = product.units;
 		(product.supermarkets = product.product.supermarkets.map(
-		  (supermarket) => (
-			(pricePer = supermarket.priceKg
+		  (supermarket) => {
+			const pricePer = supermarket.priceKg
 			  ? supermarket.priceKg
-			  : supermarket.priceL),
-			(unit = supermarket.priceKg ? "€/Kg" : "€/L"),
-			(unitsP),
-			{ ...supermarket, pricePer, unit, unitsP }
-		  )
+			  : supermarket.priceL
+			const unit = supermarket.priceKg ? "€/Kg" : "€/L"
+			return { ...supermarket, pricePer, unit, unitsP }
+      }
 		))
 		return product
 	}
