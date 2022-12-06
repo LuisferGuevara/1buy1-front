@@ -8,17 +8,23 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Profile from "./pages/Profile";
 import CompraEficiente from "./pages/CompraEficiente";
+import AuthRoute from "./components/AuthRoute";
 import AboutUs from "./pages/AboutUs";
 
 
-
-
 function App() {
-  const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const token = localStorage.getItem("token");
+  const cart = localStorage.getItem("cart");
+  
   useEffect(() => {
-    token && checkSession(token, navigate, dispatch);
+    if (token) {
+      checkSession(token, navigate, dispatch);
+      !cart && localStorage.setItem("cart", "[]")
+    }
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -28,10 +34,10 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/comparator" element={<Comparator/>} />
-      <Route path="/cart" element={<CompraEficiente/>} />
+      <Route path="/cart" element={<AuthRoute component={<CompraEficiente/>} />} />
       <Route path="/register" element={<Register/>} />
       <Route path="/login" element={<Login/>} />
-      <Route path="/profile" element={<Profile/>} />
+      <Route path="/profile" element={<AuthRoute component={<Profile/>} />} />
       <Route path="/aboutUs" element={<AboutUs/>} />
     </Routes>
     <Footer/>
