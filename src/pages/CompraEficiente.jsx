@@ -63,6 +63,9 @@ const CompraEficiente = () => {
 				return (
 					<div>
 						<span>{product.name}</span>
+                        <button>-</button>
+                        <span>Number</span>
+                        <button>+</button>
 						<div
 							onClick={() => {
 								cartStorage = cartStorage.filter(
@@ -102,6 +105,7 @@ const CompraEficiente = () => {
                 )
             })}
             <h2>TOTAL: {(Math.round(cheapestSupermarket.totalSum * 100) / 100).toFixed(2)} €</h2>
+        <button>Mostrar Kg/L</button>
 		</div>
 	);
 };
