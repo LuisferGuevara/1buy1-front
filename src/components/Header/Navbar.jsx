@@ -119,6 +119,7 @@ const Navbar = () => {
   const { token, user } = useSelector((state) => state.auth);
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isInCart, setIsInCart] = useState(false);
 
   return (
     <Nav>
@@ -136,7 +137,17 @@ const Navbar = () => {
           {token && (
             <div className="loggedin">
               <p>{user.name}</p>
-              <NavLink to="/cart" className="cart-logo">
+              {!isInCart ?
+              
+              <NavLink to="/cart" onClick={() => setIsInCart(true)} className="cart-logo">
+                <div className="cart--logo__box">
+                  <img
+                    src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670174228/icons/carrito-05_xxbnqm.svg"
+                    alt="Carrito"
+                  />
+                </div>
+              </NavLink> :
+              <NavLink to="/comparator" onClick={() => setIsInCart(false)} className="cart-logo">
                 <div className="cart--logo__box">
                   <img
                     src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670174228/icons/carrito-05_xxbnqm.svg"
@@ -144,6 +155,7 @@ const Navbar = () => {
                   />
                 </div>
               </NavLink>
+              }
             </div>
           )}
           {!token && (
