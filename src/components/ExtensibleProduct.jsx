@@ -21,6 +21,7 @@ function ExpandedCard({ product, onCollapse }) {
 	
 	useEffect(() => {
 		product.inCart = isInCart
+		//eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isInCart])
 
 	return (
