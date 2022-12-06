@@ -25,9 +25,9 @@ const Register = () => {
   return (
     <div className="register--box">
       <div className="register--container">
-      {error && <h2 className="error">{error}</h2>}
+        {error && <h2 className="error">{error}</h2>}
 
-      {isLoading && <h2 className="loading">Iniciando sesión</h2>}
+        {isLoading && <h2 className="loading">Iniciando sesión</h2>}
 
         <form onSubmit={handleSubmit(registerUser)}>
           <h1>Regístrate</h1>
@@ -166,7 +166,7 @@ const Register = () => {
             />
             <span>
               He leído y acepto los{" "}
-              <a className="tou--link" href="http://www.google.es" target="_blank" rel="noreferrer">
+              <a className="tou--link" href="https://policies.google.com/terms?hl=es" target="_blank" rel="noreferrer">
                 Términos y Condiciones de Uso
               </a>
             </span>
@@ -175,7 +175,6 @@ const Register = () => {
             <>{errors.tou.type === "required" && <p className="error">{errors.tou.message}</p>}</>
           ) : null}
           <div className="submit--box">
-
             <button className="button">Enviar</button>
           </div>
         </form>

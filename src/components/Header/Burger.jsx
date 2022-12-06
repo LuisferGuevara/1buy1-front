@@ -10,7 +10,7 @@ const StyledBurger = styled.div`
   left: 20px;
   z-index: 20;
   display: none;
-  cursor:pointer;
+  cursor: pointer;
   @media (max-width: 768px) {
     display: flex;
     justify-content: space-around;
@@ -37,7 +37,7 @@ const StyledBurger = styled.div`
   }
 `;
 
-const Burger = ({isOpen, setIsOpen}) => {
+const Burger = ({ isOpen, setIsOpen }) => {
   return (
     <>
       <StyledBurger isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
@@ -45,7 +45,7 @@ const Burger = ({isOpen, setIsOpen}) => {
         <div />
         <div />
       </StyledBurger>
-      <LeftNav isOpen={isOpen} setIsOpen={setIsOpen}/>
+      <LeftNav isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 };

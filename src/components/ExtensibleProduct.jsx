@@ -5,6 +5,7 @@ import {  useSelector } from "react-redux";
 import { pushToCart, removeFromCart } from "../redux/Auth/auth.functions";
 
 function ExpandedCard({ product, onCollapse }) {
+  const { token } = useSelector((state) => state.auth);
 
 	const { token } = useSelector(state => state.auth)
 	
@@ -52,14 +53,24 @@ function ExpandedCard({ product, onCollapse }) {
 								<p>{supermarket.productName}</p>
 								<div className="comparator--prices">
 									{priceToggle ? (
-										<p id="price--unit" className={supermarket.priceUd === minUd ? "cheapest" : ""}>{supermarket.priceUd}€</p>
-									) : (
-										<>
-											{supermarket.priceKg && <p className={supermarket.priceKg === minKg ? "cheapest" : ""}>{supermarket.priceKg} €/Kg</p>}
-											{supermarket.priceL && <p className={supermarket.priceL === minL ? "cheapest" : ""}>{supermarket.priceL} €/L</p>}
-											{(!supermarket.priceL && !supermarket.priceKg) && <p>Precio no disponible</p>}
-										</>
-									)}
+                    <p id="price--unit" className={supermarket.priceUd === minUd ? "cheapest" : ""}>
+                      {supermarket.priceUd} €
+                    </p>
+                  ) : (
+                    <>
+                      {supermarket.priceKg && (
+                        <p className={supermarket.priceKg === minKg ? "cheapest" : ""}>
+                          {supermarket.priceKg} €/Kg
+                        </p>
+                      )}
+                      {supermarket.priceL && (
+                        <p className={supermarket.priceL === minL ? "cheapest" : ""}>
+                          {supermarket.priceL} €/L
+                        </p>
+                      )}
+                      {!supermarket.priceL && !supermarket.priceKg && <p>Precio no disponible</p>}
+                    </>
+                  )}
 								</div>
 							</div>
 						</div>
@@ -82,18 +93,18 @@ function ExpandedCard({ product, onCollapse }) {
 }
 
 function CompactCard({ product, onExpand }) {
-	return (
-		<motion.div className="food-item" layoutId="expandable-card" onClick={onExpand}>
-			<div className="food-item__image">
-				<img src={product.img} alt={product.name} />
-			</div>
-			<h2>{product.name}</h2>
-		</motion.div>
-	);
+  return (
+    <motion.div className="food-item" layoutId="expandable-card" onClick={onExpand}>
+      <div className="food-item__image">
+        <img src={product.img} alt={product.name} />
+      </div>
+      <h2>{product.name}</h2>
+    </motion.div>
+  );
 }
 
 const ExpandibleProduct = ({ product }) => {
-	const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
 	const collapseProduct = () => {
 		setIsExpanded(false);
