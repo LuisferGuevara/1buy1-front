@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Burger from "./Burger";
@@ -117,9 +117,16 @@ const Nav = styled.nav`
 
 const Navbar = () => {
   const { token, user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   const [isOpen, setIsOpen] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
+  let cartStorage = JSON.parse(localStorage.getItem("cart"));
+  
+  const dispatchRedux = () => {
+    setIsInCart(true);
+    dispatch({ type: "setCart", payload: cartStorage });
+  }
 
   return (
     <Nav>
@@ -139,7 +146,7 @@ const Navbar = () => {
               <p>{user.name}</p>
               {!isInCart ?
               
-              <NavLink to="/cart" onClick={() => setIsInCart(true)} className="cart-logo">
+              <NavLink to="/cart" onClick={dispatchRedux} className="cart-logo">
                 <div className="cart--logo__box">
                   <img
                     src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670174228/icons/carrito-05_xxbnqm.svg"

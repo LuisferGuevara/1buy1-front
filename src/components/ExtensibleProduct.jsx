@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimateSharedLayout } from "framer-motion";
 import "../styles/Product.scss";
-import {  useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import { pushToCart, removeFromCart } from "../redux/Auth/auth.functions";
 
 function ExpandedCard({ product, onCollapse }) {
 
-	const { token } = useSelector(state => state.auth)
+	const { token } = useSelector(state => state.auth);
+	const dispatch = useDispatch();
 	
 	const { supermarkets } = product;
 	
@@ -17,8 +18,6 @@ function ExpandedCard({ product, onCollapse }) {
 	const [priceToggle, setPriceToggle] = useState(false);
 	const [ isInCart, setIsInCart ] = useState(product.inCart)
 
-	console.log(product);
-	
 	useEffect(() => {
 		product.inCart = isInCart
 		//eslint-disable-next-line react-hooks/exhaustive-deps
@@ -79,7 +78,7 @@ function ExpandedCard({ product, onCollapse }) {
 					<button onClick={() => setPriceToggle(!priceToggle)}>
 						{priceToggle ? "Mostrar precio Kg/L" : "Mostrar precio unidad"}
 					</button>
-					{(token && !isInCart) && <div className="cart-logo" onClick={() => pushToCart(product, setIsInCart)}>
+					{(token && !isInCart) && <div className="cart-logo" onClick={() => pushToCart(product, setIsInCart, dispatch)}>
 						<img src="https://res.cloudinary.com/dfxn0bmo9/image/upload/v1670265008/icons/carritoLogo/addToCart-yellow-10_qyg1bb.svg" alt="Añadir al carrito"/>
 					</div>}
 					{(token && isInCart) && <div className="cart-logo" onClick={() => removeFromCart(product, setIsInCart)}>

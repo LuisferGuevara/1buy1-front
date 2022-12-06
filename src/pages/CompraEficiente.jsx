@@ -1,47 +1,62 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../styles/CompraEficiente.scss";
 
 const CompraEficiente = () => {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.auth);
-
+  
   const [priceToggle, setPriceToggle] = useState(false);
 
-  let cartStorage = JSON.parse(localStorage.getItem("cart"));
+  const cartUnits = cart.map(product => ({units: 1, product}));
+  const [cartState, setCartState] = useState(cartUnits);
 
-  useEffect(() => {
-    dispatch({ type: "setCart", payload: cartStorage });
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const handleMinus = (i) => {
+	setCartState(cartState.map((product, j) => 
+	j !== i ? product :
+	({...product, units: product.units > 1 ? product.units -1 : 1})));
+	}
+	
+	const handlePlus = (i) => {
+	setCartState(cartState.map((product, j) => 
+	j !== i ? product :
+	({...product, units: product.units +1})));
+  }
+
+  let cartStorage = JSON.parse(localStorage.getItem("cart"));
 
   // Add generic price with its unit (Kg or L);
   let pricePer = "";
   let unit = "";
-  const cartPer = cart.map(
-    (product) =>
-      (product.supermarkets = product.supermarkets.map(
-        (supermarket) => (
-          (pricePer = supermarket.priceKg
-            ? supermarket.priceKg
-            : supermarket.priceL),
-          (unit = supermarket.priceKg ? "€/Kg" : "€/L"),
-          { ...supermarket, pricePer, unit }
-        )
-      ))
+  const cartUltraAwesome = cartState.map(
+    (product) =>{
+		let unitsP = product.units;
+		(product.supermarkets = product.product.supermarkets.map(
+		  (supermarket) => (
+			(pricePer = supermarket.priceKg
+			  ? supermarket.priceKg
+			  : supermarket.priceL),
+			(unit = supermarket.priceKg ? "€/Kg" : "€/L"),
+			(unitsP),
+			{ ...supermarket, pricePer, unit, unitsP }
+		  )
+		))
+		return product
+	}
   );
 
   // Compra más barata
-  const minProduct = cart.map((product) =>
+  const minProduct = cartUltraAwesome.map((product) =>
     product.supermarkets.reduce((prev, curr) =>
       prev.priceUd < curr.priceUd ? prev : curr
     )
   );
-  const sumProduct = minProduct.reduce((acc, curr) => acc + curr.priceUd, 0);
+
+  const sumProduct = minProduct.reduce((acc, curr) => acc + curr.priceUd * curr.unitsP, 0);
 
   //Compra más barata por Kg/L
-  const minProductPer = cartPer.map((product) =>
-    product.reduce((prev, curr) =>
+  const minProductPer = cartUltraAwesome.map((product) =>
+    product.supermarkets.reduce((prev, curr) =>
       prev.pricePer < curr.pricePer ? prev : curr
     )
   );
@@ -52,35 +67,35 @@ const CompraEficiente = () => {
   );
 
   // Compra más eficiente
-  let carrefour = cartPer.map((product) =>
-    product.find((supermarket) => supermarket.supermarketName === "carrefour")
+  let carrefour = cartUltraAwesome.map((product) =>
+    product.supermarkets.find((supermarket) => supermarket.supermarketName === "carrefour")
   );
   carrefour = carrefour.filter((product) => product);
 
-  let alcampo = cartPer.map((product) =>
-    product.find((supermarket) => supermarket.supermarketName === "alcampo")
+  let alcampo = cartUltraAwesome.map((product) =>
+    product.supermarkets.find((supermarket) => supermarket.supermarketName === "alcampo")
   );
   alcampo = alcampo.filter((product) => product);
 
-  let dia = cartPer.map((product) =>
-    product.find((supermarket) => supermarket.supermarketName === "dia")
+  let dia = cartUltraAwesome.map((product) =>
+    product.supermarkets.find((supermarket) => supermarket.supermarketName === "dia")
   );
   dia = dia.filter((product) => product);
 
   const carrefourPriceUd = {
     supermarket: carrefour,
-    totalSum: carrefour.reduce((acc, curr) => acc + curr.priceUd, 0),
+    totalSum: carrefour.reduce((acc, curr) => acc + curr.priceUd*curr.unitsP, 0),
     totalSumPer: carrefour.reduce((acc, curr) => acc + curr.pricePer, 0),
   };
 
   const alcampoPriceUd = {
     supermarket: alcampo,
-    totalSum: alcampo.reduce((acc, curr) => acc + curr.priceUd, 0),
+    totalSum: alcampo.reduce((acc, curr) => acc + curr.priceUd*curr.unitsP, 0),
     totalSumPer: alcampo.reduce((acc, curr) => acc + curr.pricePer, 0),
   };
   const diaPriceUd = {
     supermarket: dia,
-    totalSum: dia.reduce((acc, curr) => acc + curr.priceUd, 0),
+    totalSum: dia.reduce((acc, curr) => acc + curr.priceUd*curr.unitsP, 0),
     totalSumPer: dia.reduce((acc, curr) => acc + curr.pricePer, 0),
   };
 
@@ -118,24 +133,25 @@ const CompraEficiente = () => {
   return (
     <section>
       <h2>LISTA DE LA COMPRA</h2>
-      {cart.map((product) => {
+      {cartState.map((productState, i) => {
         return (
           <div className="cart--container">
-            <span id="cart--container--product-name">{product.name}</span>
+            <span id="cart--container--product-name">{productState.product.name}</span>
             <div className="cart--container--buttons">
 			{!priceToggle &&
 			<>
-              <button>-</button>
-              <span id="cart--container--product-price">Number</span>
-              <button>+</button>
+              <button onClick={() => handleMinus(i)}>-</button>
+              <span id="cart--container--product-price">{productState.units}</span>
+              <button onClick={() => handlePlus(i)}>+</button>
 			</>
 			}
               <div
                 className="cart--container--binbox"
                 onClick={() => {
                   cartStorage = cartStorage.filter(
-                    (cartProduct) => cartProduct.name !== product.name
+                    (cartProduct) => cartProduct.name !== productState.product.name
                   );
+				  setCartState(cartStorage.map(product => ({units: 1, product})));
                   localStorage.setItem("cart", JSON.stringify(cartStorage));
                   dispatch({ type: "setCart", payload: cartStorage });
                 }}
@@ -161,7 +177,7 @@ const CompraEficiente = () => {
                       <img src={product.logo} alt={product.supermarketName} />
                       <p>{product.productName}</p>
                     </div>
-                    <span>{product.priceUd}</span>
+                    <span>{product.priceUd}€ x {product.unitsP}</span>
                   </div>
                 );
               })
@@ -199,7 +215,7 @@ const CompraEficiente = () => {
                   <img src={product.logo} alt={product.supermarketName} />
                   <p>{product.productName}</p>
                 </div>
-                <span>{product.priceUd}</span>
+                <span>{product.priceUd}€ x {product.unitsP}</span>
               </div>
             );
           }) :
