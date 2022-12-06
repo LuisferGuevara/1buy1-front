@@ -12,9 +12,6 @@ import AuthRoute from "./components/AuthRoute";
 import AboutUs from "./pages/AboutUs";
 
 
-
-
-
 function App() {
 
   const navigate = useNavigate();
