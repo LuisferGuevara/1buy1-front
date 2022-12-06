@@ -47,11 +47,9 @@ const Nav = styled.nav`
     }
     .loggedin {
       display: flex;
-      background-color: red;
       p {
         font-size: 1em;
         font-weight: bolder;
-        background-color: plum;
         width: 100px;
         text-align: center;
         word-wrap: break-word;
