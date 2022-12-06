@@ -51,10 +51,11 @@ export const postUser = async (data, navigate, dispatch) => {
     navigate("/comparator");
   };
 
-  export const pushToCart = ( product, setIsInCart ) => {
+  export const pushToCart = ( product, setIsInCart,dispatch ) => {
     const cart = JSON.parse(localStorage.getItem("cart"))
     cart.push(product)
     localStorage.setItem("cart", JSON.stringify(cart))
+    dispatch({ type: "setCart", payload: cart });
     setIsInCart(true)
   }
 
