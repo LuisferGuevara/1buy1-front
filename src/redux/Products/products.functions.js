@@ -2,6 +2,7 @@ import { API } from "../../utils/services/api";
 
 export const getProducts = async ( dispatch ) => {
  try {
+  dispatch({type: "gettingProducts"})
    const result = await API.get("/products");
    const cart = JSON.parse(localStorage.getItem("cart"))
    if (cart) {

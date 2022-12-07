@@ -7,7 +7,7 @@ import "../styles/Comparator.scss";
 
 const Comparator = () => {
   const dispatch = useDispatch();
-  const { filter, products } = useSelector((state) => state.products);
+  const { filter, products, isLoading } = useSelector((state) => state.products);
 
   useEffect(() => {
     getProducts(dispatch);
@@ -22,6 +22,7 @@ const Comparator = () => {
     <div className="comparator--section">
       <Filters />
       <div className="products--billboard">
+      { isLoading && <p>Cargando Productos</p>}
         {filter.map((product) => (
           <ExpandibleProduct product={product} key={JSON.stringify(product)} />
         ))}
