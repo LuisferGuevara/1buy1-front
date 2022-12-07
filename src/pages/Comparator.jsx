@@ -22,7 +22,7 @@ const Comparator = () => {
     <div className="comparator--section">
       <Filters />
       <div className="products--billboard">
-      { isLoading && <p>Cargando Productos... </p>}
+      { isLoading && <h1 id="loading--message">Cargando Productos... </h1>}
         {filter.map((product) => (
           <ExpandibleProduct product={product} key={JSON.stringify(product)} />
         ))}
