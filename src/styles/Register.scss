@@ -3,11 +3,8 @@
   padding-top: 100px;
   // height: 600px;
   // height: 80vh;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  @media (min-width: 769px) {
-    height: 80vh;
-  }
   .register--container {
     display: flex;
     justify-content: space-evenly;
@@ -133,7 +130,6 @@
         width: 85%;
         display: flex;
         input {
-          
           margin: 1em;
           @media (min-width: 769px) {
             margin: 1em em;
