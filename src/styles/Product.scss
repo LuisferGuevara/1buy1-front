@@ -200,7 +200,13 @@
         align-self: flex-end;
         width: 40px;
         cursor: pointer;
-
+        
+        @media(hover: hover) and (pointer: fine) {
+          &:hover {
+            transform: scale(1.2);
+            background-color: red;
+          }
+      }
         img {
           border: 4px;
           padding: 0.2em;

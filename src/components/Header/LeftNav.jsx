@@ -55,16 +55,20 @@ const Ul = styled.ul`
   }
   @media (min-width: 769px) {
     font-size: 12px;
+    margin: 0 auto;
+    width: 80vw;
+    max-width:800px;
     display:flex;
     flex-flow: row wrap;
-    justify-content: left;
-    width: 60%;
+    justify-content: flex-end;
+
 
     li {
-      display: flex;
-      width: 35%;
-      margin: 0;
+
+      text-align: start;
+      width: 28%;
       padding: 0;
+      margin-bottom: 0.5em;
       font-weight: bolder;
     }
     .logout {

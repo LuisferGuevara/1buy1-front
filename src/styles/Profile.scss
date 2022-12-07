@@ -16,6 +16,7 @@
   padding-top: 76px;
   min-height: 700px;
   max-width: 1200px;
+  margin: 0 auto;
   @media (min-width: 769px) {
     height: 80vh;
   }
@@ -30,6 +31,7 @@
     align-items: flex-start;
     justify-content: space-evenly;
     width: 80%;
+    margin: 0 auto;
     height: 400px;
     .profile--entry {
       display: flex;

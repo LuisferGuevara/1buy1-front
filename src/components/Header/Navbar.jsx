@@ -61,27 +61,30 @@ const Nav = styled.nav`
     }
   }
   @media (min-width: 769px) {
+    position: fixed;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1;
     .menu--box {
       margin: 0 auto;
       width: 100%;
       position: relative;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width:1200px;
+      max-width:1100px;
     }
-    height: 80px;
+    height: 65px;
     img {
       width: 40px;
     }
 
     .logo {
       position: absolute;
-      top: 0;
-      left: 45%;
+      top: 5px;
+      left: 2%;
       width: fit-content;
-      margin-right: 35%;
-      width: 200px;
       height: 60px;
       a {
         height: 100%;
