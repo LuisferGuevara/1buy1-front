@@ -10,7 +10,7 @@ export const getProducts = async ( dispatch ) => {
    } else {
       result.data.forEach(product => product.inCart = false)
    }
-   dispatch({type: "getProducts", payload: result.data});  
+  //  dispatch({type: "getProducts", payload: result.data});  
  } catch (error) {
    dispatch({type: "errorProducts", payload: error.response?.data})
     
